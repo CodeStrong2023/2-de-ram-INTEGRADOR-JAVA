@@ -2,11 +2,11 @@ package menus;
 
 import java.util.Scanner;
 
-abstract class Menus {
+public class Menus {
     protected int option;
     protected Scanner scanner = new Scanner(System.in);
 
-    protected void customHeaderMenu(String title) {
+    public static void customHeaderMenu(String title) {
         // Este método crea una cabecera de menú flexible, se adapta el tamaño a cualquier título
         String _title = "|          " + title + "          |";
         StringBuilder line = new StringBuilder();

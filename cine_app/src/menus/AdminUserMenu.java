@@ -1,5 +1,7 @@
 package menus;
 
+import users.UserServices;
+
 public class AdminUserMenu extends Menus {
     private static  final AdminUserMenu instance = new AdminUserMenu();
     private AdminUserMenu() {
@@ -27,7 +29,7 @@ public class AdminUserMenu extends Menus {
                 System.out.println("Elejiste la opción 1");
                 break;
             case 2:
-                System.out.println("Elejiste la opción 2");
+                UserServices.addUser();
                 break;
             case 3:
                 System.out.println("Elejiste la opción 3");

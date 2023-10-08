@@ -1,6 +1,7 @@
 package users;
 
 public class User {
+    private int id;
     private String name;
     private String lastName;
     private int age;
@@ -17,6 +18,7 @@ public class User {
         this.password = password;
         this.role = role;
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
+        this.id++;
     }
 
     public String getName() {
@@ -73,5 +75,8 @@ public class User {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+    public int getId() {
+        return id;
     }
 }
