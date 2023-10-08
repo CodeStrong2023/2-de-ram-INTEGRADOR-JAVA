@@ -1,20 +1,22 @@
 package menus;
 
-public class UserMenu extends Menus {
-    private static  final UserMenu instance = new UserMenu();
-    private UserMenu() {
+public class AdminMovieMenu extends Menus {
+    private static  final AdminMovieMenu instance = new AdminMovieMenu();
+    private AdminMovieMenu() {
         super();
     }
 
     public static void getMenu(String name){
-        instance.userMenu(name);
+        instance.adminMoviesMenu();
     }
-     private void userMenu(String name) {
-        super.customHeaderMenu("Bienvenido " + name);
-        System.out.println("1 - Comprar una entrada");
-        System.out.println("2 - Mostrar las funciones");
-        System.out.println("3 - Salir");
-        super.setOptionMenu(3);
+     private void adminMoviesMenu() {
+        super.customHeaderMenu("ADMINISTRACIÓN DE PELICULAS");
+        System.out.println("1 - Mostrar todas las películas");
+        System.out.println("2 - Agregar una película");
+        System.out.println("3 - Editar una película");
+        System.out.println("4 - Eliminar una película");
+        System.out.println("5 - Volver");
+        super.setOptionMenu(5);
         handleMenuOptions(super.option);
     }
 
@@ -34,3 +36,4 @@ public class UserMenu extends Menus {
         }
     }
 }
+
