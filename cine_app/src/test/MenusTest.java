@@ -1,6 +1,5 @@
 package test;
 
-import menus.Menus;
 
 public class MenusTest {
 
@@ -8,6 +7,6 @@ public class MenusTest {
 //       Menus.maninMenu();
 //        Menus.userMenu("Luis");
 //        Menus.adminMoviesMenu();
-        Menus.adminUsersMenu();
+//        Menus.adminUsersMenu();
     }
 }
