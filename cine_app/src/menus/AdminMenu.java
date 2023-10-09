@@ -1,6 +1,6 @@
 package menus;
 
-import users.SessionUser;
+import auth.SessionUser;
 
 public class AdminMenu extends Menus {
     private static final AdminMenu instance = new AdminMenu();

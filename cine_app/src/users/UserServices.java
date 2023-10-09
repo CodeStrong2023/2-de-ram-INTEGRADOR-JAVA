@@ -1,11 +1,10 @@
 package users;
 
-import menus.AdminMenu;
+import auth.SessionUser;
 import menus.AdminUserMenu;
 import menus.Menus;
 import utils.Utils;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 

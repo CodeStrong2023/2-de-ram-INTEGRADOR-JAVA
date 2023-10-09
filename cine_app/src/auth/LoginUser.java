@@ -2,7 +2,6 @@ package auth;
 
 import menus.AdminMenu;
 import menus.UserMenu;
-import users.SessionUser;
 import users.User;
 import users.UserServices;
 import utils.Utils;

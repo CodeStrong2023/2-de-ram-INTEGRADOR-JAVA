@@ -1,6 +1,6 @@
 package menus;
 
-import users.SessionUser;
+import auth.SessionUser;
 import users.UserServices;
 
 public class AdminUserMenu extends Menus {
