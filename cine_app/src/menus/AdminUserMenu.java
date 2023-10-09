@@ -32,7 +32,7 @@ public class AdminUserMenu extends Menus {
                 UserServices.addUser();
                 break;
             case 3:
-                System.out.println("Elejiste la opción 3");
+                UserServices.editUser();
                 break;
             default:
                 System.out.println("Salida");

@@ -1,5 +1,8 @@
 package users;
 
+import jdk.jshell.execution.Util;
+import utils.Utils;
+
 public class User {
     private int id;
     private String name;
@@ -10,13 +13,13 @@ public class User {
     private String role;
     private boolean isActive;
 
-    public User(String name, String lastName, int age, String emai, String password, String role) {
+    public User(String name, String lastName, int age, String emai, String password) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.emai = emai;
         this.password = password;
-        this.role = role;
+        this.role = "user";
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
         this.id++;
     }
@@ -26,6 +29,7 @@ public class User {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -76,6 +80,7 @@ public class User {
     public void setActive(boolean active) {
         isActive = active;
     }
+
     public int getId() {
         return id;
     }
