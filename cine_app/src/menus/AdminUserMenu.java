@@ -1,16 +1,19 @@
 package menus;
 
+import users.SessionUser;
 import users.UserServices;
 
 public class AdminUserMenu extends Menus {
-    private static  final AdminUserMenu instance = new AdminUserMenu();
+    private static final AdminUserMenu instance = new AdminUserMenu();
+
     private AdminUserMenu() {
         super();
     }
 
-    public static void getMenu(String name){
+    public static void getMenu(String name) {
         instance.adminUserMenu();
     }
+
     private void adminUserMenu() {
         super.customHeaderMenu("ADMINISTRACIÓN DE USUARIOS");
         System.out.println("1 - Mostrar todos los usuarios");
@@ -33,6 +36,12 @@ public class AdminUserMenu extends Menus {
                 break;
             case 3:
                 UserServices.editUser();
+                break;
+            case 4:
+                System.out.println("Elejiste la opción 1");
+                break;
+            case 5:
+                AdminMenu.getMenu(SessionUser.user.getName());
                 break;
             default:
                 System.out.println("Salida");

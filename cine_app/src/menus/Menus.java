@@ -1,10 +1,13 @@
 package menus;
 
+import auth.LoginUser;
+import users.UserServices;
+
 import java.util.Scanner;
 
 public class Menus {
-    protected int option;
-    protected Scanner scanner = new Scanner(System.in);
+    protected static int option;
+    protected static Scanner scanner = new Scanner(System.in);
 
     public static void customHeaderMenu(String title) {
         // Este método crea una cabecera de menú flexible, se adapta el tamaño a cualquier título
@@ -19,33 +22,49 @@ public class Menus {
     }
 
     protected int getOption() {
-        return this.option;
+        return option;
     }
 
-    protected void setOption(int option) {
-        this.option = option;
+    protected static void setOption(int userOption) {
+        option = userOption;
     }
 
-    protected void setOptionMenu(int maxOptions) {
+    protected static void setOptionMenu(int maxOptions) {
         System.out.println("Seleccione una opción: ");
-        int userOption = this.scanner.nextInt();
+        int userOption = scanner.nextInt();
         while (userOption <= 0 || userOption > maxOptions) {
             System.out.println("Seleccione una opción válida del 1 al " + maxOptions);
             System.out.println("Seleccione una opción: ");
-            userOption = this.scanner.nextInt();
+            userOption = scanner.nextInt();
 
         }
-        this.setOption(userOption);
+        setOption(userOption);
     }
 
     // Métodos de menus
-    protected void maninMenu() {
-        this.customHeaderMenu("BIENVENIDOS A CINE APP");
+    public static void maninMenu() {
+        customHeaderMenu("BIENVENIDOS A CINE APP");
         System.out.println("1 - Login");
         System.out.println("2 - Registrarse");
         System.out.println("3 - Salir");
-        this.setOptionMenu(3);
+        setOptionMenu(3);
+        handleMenuOptions(option);
+    }
 
+    private static void handleMenuOptions(int option) {
+        switch (option) {
+            case 1:
+                LoginUser.login();
+                break;
+            case 2:
+                UserServices.addUser();
+                break;
+            case 3:
+                System.out.println("Gracias por utilizar nuestra Cine App lo esperamos nuevamente");
+                break;
+            default:
+                System.out.println("Salida");
+        }
     }
 
 

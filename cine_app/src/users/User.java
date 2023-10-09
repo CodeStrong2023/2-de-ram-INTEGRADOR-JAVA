@@ -1,28 +1,37 @@
 package users;
 
-import jdk.jshell.execution.Util;
-import utils.Utils;
-
 public class User {
     private int id;
     private String name;
     private String lastName;
     private int age;
-    private String emai;
+    private String email;
     private String password;
     private String role;
     private boolean isActive;
 
-    public User(String name, String lastName, int age, String emai, String password) {
+    public User(String name, String lastName, int age, String email, String password) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.emai = emai;
+        this.email = email;
         this.password = password;
         this.role = "user";
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
         this.id++;
     }
+    public User(String name, String lastName, int age, String email, String password, String role) {
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
+        this.id++;
+    }
+
+
 
     public String getName() {
         return name;
@@ -49,12 +58,13 @@ public class User {
         this.age = age;
     }
 
-    public String getEmai() {
-        return emai;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmai(String emai) {
-        this.emai = emai;
+    public void setEmai(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

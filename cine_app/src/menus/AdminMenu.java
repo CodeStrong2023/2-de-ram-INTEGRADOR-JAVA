@@ -1,5 +1,7 @@
 package menus;
 
+import users.SessionUser;
+
 public class AdminMenu extends Menus {
     private static final AdminMenu instance = new AdminMenu();
     private AdminMenu() {
@@ -25,7 +27,7 @@ public class AdminMenu extends Menus {
                 System.out.println("Elejiste la opción 1");
                 break;
             case 2:
-                System.out.println("Elejiste la opción 2");
+                AdminUserMenu.getMenu(SessionUser.user.getName());
                 break;
             case 3:
                 System.out.println("Elejiste la opción 3");
