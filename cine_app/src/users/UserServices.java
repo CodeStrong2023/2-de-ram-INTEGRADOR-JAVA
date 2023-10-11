@@ -1,15 +1,15 @@
 package users;
 
-import menus.AdminMenu;
+import auth.SessionUser;
 import menus.AdminUserMenu;
 import menus.Menus;
 import utils.Utils;
 
-import java.awt.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class UserServices {
-    private static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
@@ -19,23 +19,25 @@ public class UserServices {
         String age = Utils.stringInput("Ingrese su edad");
         String email = Utils.stringInput("Ingrese su email");
         String password = Utils.stringInput("Ingrese su password");
-        UserServices.users.add(new User(name, lastName, Integer.parseInt(age), email, password));
+        users.add(new User(name, lastName, Integer.parseInt(age), email, password));
         System.out.println("Usuario agregado exitosamente");
-        AdminUserMenu.getMenu("Luis");
 
+
+    }
+
+    public static void addMockUser() {
+        users.add(new User("Luis", "Mera", 37, "admin@admin.com", "admin", "admin"));
+        users.add(new User("Juan", "Perez", 22, "jperez@gmail.com", "123"));
+        users.add(new User("Mariana", "Diaz", 25, "mdiaz@gmail.com", "123"));
     }
 
     public static void editUser() {
         String id = Utils.stringInput("Ingrese el id");
-        User user = null;
-        for (User e : users) {
-            if (e.getId() == Integer.parseInt(id)) {
-                user = e;
-            }
-        }
+        User user = getUserById(Integer.parseInt(id));
+
         if (user == null) {
             System.out.println("No se encontro el usuario");
-            AdminUserMenu.getMenu("Luis");
+            AdminUserMenu.getMenu(SessionUser.user.getName());
         }
 
         Menus.customHeaderMenu("Ediatar el usuario " + user.getName() + " " + user.getLastName());
@@ -59,12 +61,26 @@ public class UserServices {
         if (!password.equalsIgnoreCase("no")) {
             user.setPassword(password);
         }
-        AdminUserMenu.getMenu("Luis");
+        AdminUserMenu.getMenu(SessionUser.user.getName());
 
     }
 
-    public static ArrayList<User> getUsers() {
-        return users;
+    public static User getUserByEmail(String email) {
+        for (User user : users) {
+            if (Objects.equals(user.getEmail(), email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static User getUserById(int id) {
+        for (User user : users) {
+            if (Objects.equals(user.getId(), id)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public static void setUsers(ArrayList<User> users) {

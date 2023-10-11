@@ -1,4 +1,6 @@
-package users;
+package auth;
+
+import users.User;
 
 public class SessionUser {
     public static User user;
