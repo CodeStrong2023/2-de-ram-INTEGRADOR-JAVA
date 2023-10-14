@@ -9,6 +9,7 @@ public class User {
     private String password;
     private String role;
     private boolean isActive;
+    private static int countId;
 
     public User(String name, String lastName, int age, String email, String password) {
         this.name = name;
@@ -18,8 +19,9 @@ public class User {
         this.password = password;
         this.role = "user";
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
-        this.id++;
+        this.id = ++countId;
     }
+
     public User(String name, String lastName, int age, String email, String password, String role) {
         this.name = name;
         this.lastName = lastName;
@@ -28,9 +30,8 @@ public class User {
         this.password = password;
         this.role = role;
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
-        this.id++;
+        this.id = ++countId;
     }
-
 
 
     public String getName() {
