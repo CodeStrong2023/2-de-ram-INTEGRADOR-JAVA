@@ -2,16 +2,13 @@ package movies;
 
 import auth.SessionUser;
 import menus.AdminMovieMenu;
-import menus.AdminUserMenu;
 import menus.Menus;
-import users.User;
-import users.UserServices;
 import utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class MoviesServices {
+public class MovieServices {
     public static ArrayList<Movie> movies = new ArrayList<>();
 
     public static void addMovie() {
@@ -67,7 +64,7 @@ public class MoviesServices {
         return null;
     }
 
-    public static void setMovies(ArrayList<Movie> users) {
-        MoviesServices.movies = users;
+    public static void setMovies(ArrayList<Movie> movies) {
+        MovieServices.movies = movies;
     }
 }
