@@ -64,6 +64,10 @@ public class MovieServices {
         return null;
     }
 
+    public static void  showMovies() {
+        // Desarrollar la lógica con la grid
+    }
+
     public static void setMovies(ArrayList<Movie> movies) {
         MovieServices.movies = movies;
     }

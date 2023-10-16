@@ -82,6 +82,9 @@ public class UserServices {
         }
         return null;
     }
+    public static void showUsers() {
+        // Desarrollar la lógica con la grid
+    }
 
     public static void setUsers(ArrayList<User> users) {
         UserServices.users = users;
