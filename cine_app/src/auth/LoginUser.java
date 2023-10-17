@@ -9,8 +9,9 @@ import utils.Utils;
 public class LoginUser {
 
     public static void login() {
-        String email = Utils.stringInput("Ingrese su email");
-        String password = Utils.stringInput("Ingrese su password");
+        System.out.println("");
+        String email = Utils.stringInput("Ingrese su email: ");
+        String password = Utils.stringInput("Ingrese su password: ");
         User user = UserServices.getUserByEmail(email);
         if(user != null) {
             if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {
@@ -24,6 +25,7 @@ public class LoginUser {
             }
 
         }
+        System.out.println("");
         System.out.println("Email o contraseña no válida");
         login();
 

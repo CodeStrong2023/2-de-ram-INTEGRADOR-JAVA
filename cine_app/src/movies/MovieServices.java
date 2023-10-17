@@ -13,10 +13,10 @@ public class MovieServices {
 
     public static void addMovie() {
         Menus.customHeaderMenu("Agregar una nueva Película");
-        String title = Utils.stringInput("Ingrese el título");
-        String classification = Utils.stringInput("Ingrese en número de calisificación");
-        String gender = Utils.stringInput("Ingrese el género");
-        movies.add(new Movie(title, Integer.parseInt(classification), gender));
+        String title = Utils.stringInput("Ingrese el título: ");
+        int classification = Utils.intInput("Ingrese en número de calisificación: ");
+        String gender = Utils.stringInput("Ingrese el género: ");
+        movies.add(new Movie(title, classification, gender));
         System.out.println("Película agregada exitosamente");
     }
 
@@ -29,24 +29,25 @@ public class MovieServices {
     }
 
     public static void editMovie() {
-        String id = Utils.stringInput("Ingrese el id");
-        Movie movie = getMovieById(Integer.parseInt(id));
+        int id = Utils.intInput("Ingrese el id: ");
+        Movie movie = getMovieById(id);
 
         if (movie == null) {
+            System.out.println("");
             System.out.println("No se encontro la película");
             AdminMovieMenu.getMenu(SessionUser.user.getName());
         }
 
         Menus.customHeaderMenu("Ediatar la película " + movie.getTitle());
-        String title = Utils.stringInput("Ingrese el título (ingrese NO si no desea editar)").toLowerCase();
+        String title = Utils.stringInput("Ingrese el título (ingrese NO si no desea editar: )").toLowerCase();
         if (!title.equalsIgnoreCase("no")) {
             movie.setTitle(title);
         }
-        String classification = Utils.stringInput("Ingrese el número de calificación (ingrese NO si no desea editar)").toLowerCase();
+        String classification = Utils.stringInput("Ingrese el número de calificación (ingrese NO si no desea editar): ").toLowerCase();
         if (!classification.equalsIgnoreCase("no")) {
             movie.setClassification(Integer.parseInt(classification));
         }
-        String gender = Utils.stringInput("Ingrese el género (ingrese NO si no desea editar)").toLowerCase();
+        String gender = Utils.stringInput("Ingrese el género (ingrese NO si no desea editar): ").toLowerCase();
         if (!gender.equalsIgnoreCase("no")) {
             movie.setGender(gender);
         }
@@ -64,11 +65,7 @@ public class MovieServices {
         return null;
     }
 
-    public static void  showMovies() {
+    public static void showMovies() {
         // Desarrollar la lógica con la grid
-    }
-
-    public static void setMovies(ArrayList<Movie> movies) {
-        MovieServices.movies = movies;
     }
 }

@@ -30,12 +30,12 @@ public class Menus {
     }
 
     protected static void setOptionMenu(int maxOptions) {
-        System.out.println("Seleccione una opción: ");
-        int userOption = scanner.nextInt();
+        System.out.print("Seleccione una opción: ");
+        int userOption = Integer.parseInt(scanner.nextLine());
         while (userOption <= 0 || userOption > maxOptions) {
             System.out.println("Seleccione una opción válida del 1 al " + maxOptions);
-            System.out.println("Seleccione una opción: ");
-            userOption = scanner.nextInt();
+            System.out.print("Seleccione una opción: ");
+            userOption = Integer.parseInt(scanner.nextLine());
 
         }
         setOption(userOption);

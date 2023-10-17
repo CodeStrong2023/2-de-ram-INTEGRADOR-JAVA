@@ -14,15 +14,14 @@ public class UserServices {
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
         Menus.customHeaderMenu("Agregar un usuario nuevo");
-        String name = Utils.stringInput("Ingrese su nombre");
-        String lastName = Utils.stringInput("Ingresee su apellido");
-        String age = Utils.stringInput("Ingrese su edad");
-        String email = Utils.stringInput("Ingrese su email");
-        String password = Utils.stringInput("Ingrese su password");
-        users.add(new User(name, lastName, Integer.parseInt(age), email, password));
+        String name = Utils.stringInput("Ingrese su nombre: ");
+        String lastName = Utils.stringInput("Ingresee su apellido: ");
+        int age = Utils.intInput("Ingrese su edad: ");
+        String email = Utils.stringInput("Ingrese su email: ");
+        String password = Utils.stringInput("Ingrese su password: ");
+        users.add(new User(name, lastName, age, email, password));
         System.out.println("Usuario agregado exitosamente");
-
-
+        Menus.maninMenu();
     }
 
     public static void addMockUser() {
@@ -32,32 +31,33 @@ public class UserServices {
     }
 
     public static void editUser() {
-        String id = Utils.stringInput("Ingrese el id");
-        User user = getUserById(Integer.parseInt(id));
+        int id = Utils.intInput("Ingrese el id: ");
+        User user = getUserById(id);
 
         if (user == null) {
+            System.out.println("");
             System.out.println("No se encontro el usuario");
             AdminUserMenu.getMenu(SessionUser.user.getName());
         }
 
         Menus.customHeaderMenu("Ediatar el usuario " + user.getName() + " " + user.getLastName());
-        String name = Utils.stringInput("Ingrese su nombre (ingrese NO si no desea editar)");
+        String name = Utils.stringInput("Ingrese su nombre (ingrese NO si no desea editar): ").toLowerCase();
         if (!name.equalsIgnoreCase("no")) {
             user.setName(name);
         }
-        String lastName = Utils.stringInput("Ingresee su apellido (ingrese NO si no desea editar)");
+        String lastName = Utils.stringInput("Ingresee su apellido (ingrese NO si no desea editar): ").toLowerCase();
         if (!lastName.equalsIgnoreCase("no")) {
             user.setLastName(lastName);
         }
-        String age = Utils.stringInput("Ingrese su edad (ingrese NO si no desea editar)");
+        String age = Utils.stringInput("Ingrese su edad (ingrese NO si no desea editar): ").toLowerCase();
         if (!age.equalsIgnoreCase("no")) {
             user.setAge(Integer.parseInt(age));
         }
-        String email = Utils.stringInput("Ingrese su email (ingrese NO si no desea editar)");
+        String email = Utils.stringInput("Ingrese su email (ingrese NO si no desea editar): ").toLowerCase();
         if (!email.equalsIgnoreCase("no")) {
             user.setEmai(email);
         }
-        String password = Utils.stringInput("Ingrese su password (ingrese NO si no desea editar)");
+        String password = Utils.stringInput("Ingrese su password (ingrese NO si no desea editar): ").toLowerCase();
         if (!password.equalsIgnoreCase("no")) {
             user.setPassword(password);
         }
