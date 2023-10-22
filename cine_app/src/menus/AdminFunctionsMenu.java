@@ -1,14 +1,19 @@
 package menus;
 
+import auth.SessionUser;
+import function.FunctionServices;
+
 public class AdminFunctionsMenu extends Menus {
-    private static  final AdminFunctionsMenu instance = new AdminFunctionsMenu();
+    private static final AdminFunctionsMenu instance = new AdminFunctionsMenu();
+
     private AdminFunctionsMenu() {
         super();
     }
 
-    public static void getMenu(String name){
+    public static void getMenu(String name) {
         instance.adminFunctionsMenu();
     }
+
     private void adminFunctionsMenu() {
         super.customHeaderMenu("ADMINISTRACIÓN DE FUNCIONES");
         System.out.println("1 - Mostrar todas las funciones");
@@ -23,13 +28,20 @@ public class AdminFunctionsMenu extends Menus {
     private void handleMenuOptions(int option) {
         switch (option) {
             case 1:
-                System.out.println("Elejiste la opción 1");
+                FunctionServices.showFunctions();
                 break;
             case 2:
-                System.out.println("Elejiste la opción 2");
+                FunctionServices.addFunction();
                 break;
             case 3:
-                System.out.println("Elejiste la opción 3");
+                FunctionServices.editFunction();
+                break;
+            case 4:
+                // Agregar el método para elimiar la función
+//                FunctionServices.;
+                break;
+            case 5:
+                AdminMenu.getMenu(SessionUser.user.getName());
                 break;
             default:
                 System.out.println("Salida");

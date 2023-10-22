@@ -1,15 +1,20 @@
 package menus;
 
+import auth.SessionUser;
+import movies.MovieServices;
+
 public class AdminMovieMenu extends Menus {
-    private static  final AdminMovieMenu instance = new AdminMovieMenu();
+    private static final AdminMovieMenu instance = new AdminMovieMenu();
+
     private AdminMovieMenu() {
         super();
     }
 
-    public static void getMenu(String name){
+    public static void getMenu(String name) {
         instance.adminMoviesMenu();
     }
-     private void adminMoviesMenu() {
+
+    private void adminMoviesMenu() {
         super.customHeaderMenu("ADMINISTRACIÓN DE PELICULAS");
         System.out.println("1 - Mostrar todas las películas");
         System.out.println("2 - Agregar una película");
@@ -26,10 +31,16 @@ public class AdminMovieMenu extends Menus {
                 System.out.println("Elejiste la opción 1");
                 break;
             case 2:
-                System.out.println("Elejiste la opción 2");
+                MovieServices.addMovie();
                 break;
             case 3:
-                System.out.println("Elejiste la opción 3");
+                MovieServices.editMovie();
+                break;
+            case 4:
+                // Agregar el método de eliminar
+                break;
+            case 5:
+                AdminMenu.getMenu(SessionUser.user.getName());
                 break;
             default:
                 System.out.println("Salida");

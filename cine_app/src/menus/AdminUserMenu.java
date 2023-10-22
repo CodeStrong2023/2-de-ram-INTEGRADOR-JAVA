@@ -38,7 +38,7 @@ public class AdminUserMenu extends Menus {
                 UserServices.editUser();
                 break;
             case 4:
-                System.out.println("Elejiste la opción 1");
+                //Agregar el método de eliminar
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());
