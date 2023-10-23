@@ -1,6 +1,7 @@
 package movies;
 
 import auth.SessionUser;
+import grid.MovieGrid;
 import menus.AdminMovieMenu;
 import menus.Menus;
 import utils.Utils;
@@ -25,7 +26,7 @@ public class MovieServices {
         movies.add(new Movie("The Exorcist: Believer", 13, "Terror, Suspenso"));
         movies.add(new Movie("Kandisha", 16, "Terror"));
         movies.add(new Movie("El duelo", 16, "Comedia"));
-        movies.add(new Movie("PAW Patrol: The Mighty Movie", 1, "Acción, Aventuras, Animación"));
+        movies.add(new Movie("PAW Patrol: The Mighty Movie", 10, "Acción, Aventuras, Animación"));
     }
 
     public static void editMovie() {
@@ -65,7 +66,12 @@ public class MovieServices {
         return null;
     }
 
-    public static void showMovies() {
-        // Desarrollar la lógica con la grid
+    public static void showMovies(ArrayList<Movie> movies) {
+        MovieGrid.generateHeader();
+        for (Movie movie : movies) {
+            if (movie.isActive()) {
+                MovieGrid.showMovieLine(movie);
+            }
+        }
     }
 }

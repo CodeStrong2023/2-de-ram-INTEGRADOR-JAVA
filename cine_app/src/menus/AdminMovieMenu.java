@@ -28,7 +28,7 @@ public class AdminMovieMenu extends Menus {
     private void handleMenuOptions(int option) {
         switch (option) {
             case 1:
-                System.out.println("Elejiste la opción 1");
+                MovieServices.showMovies(MovieServices.movies);
                 break;
             case 2:
                 MovieServices.addMovie();

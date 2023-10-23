@@ -29,7 +29,7 @@ public class AdminUserMenu extends Menus {
     private void handleMenuOptions(int option) {
         switch (option) {
             case 1:
-                System.out.println("Elejiste la opción 1");
+                UserServices.showUsers();
                 break;
             case 2:
                 UserServices.addUser();

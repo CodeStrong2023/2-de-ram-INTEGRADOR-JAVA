@@ -1,6 +1,7 @@
 package users;
 
 import auth.SessionUser;
+import grid.UserGrid;
 import menus.AdminUserMenu;
 import menus.Menus;
 import utils.Utils;
@@ -83,7 +84,12 @@ public class UserServices {
         return null;
     }
     public static void showUsers() {
-        // Desarrollar la lógica con la grid
+        UserGrid.generateHeaders();
+        for (User user : users) {
+            if(user.isActive()) {
+                UserGrid.showLineUser(user);
+            }
+        }
     }
 
     public static void setUsers(ArrayList<User> users) {
