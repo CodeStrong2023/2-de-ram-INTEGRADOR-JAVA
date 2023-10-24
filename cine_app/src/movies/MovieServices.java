@@ -73,5 +73,6 @@ public class MovieServices {
                 MovieGrid.showMovieLine(movie);
             }
         }
+        AdminMovieMenu.getMenu(SessionUser.user.getName());
     }
 }

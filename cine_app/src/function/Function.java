@@ -2,22 +2,27 @@ package function;
 
 import movies.Movie;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Function {
     private int id;
     private Movie movie;
     private int room;
-    private Date schedule;
+    private LocalTime schedule;
     private boolean isActive;
     private static int idCount;
 
-    public Function(Movie movie, int room, Date schedule) {
+    public Function(Movie movie, int room, int hours, int minutes) {
         this.movie = movie;
         this.room = room;
-        this.schedule = schedule;
+        this.schedule = LocalTime.of(hours, minutes);
         this.isActive = true;
         this.id = ++idCount;
+
+    }
+
+    public Function() {
     }
 
     public int getId() {
@@ -40,11 +45,11 @@ public class Function {
         this.room = room;
     }
 
-    public Date getSchedule() {
+    public LocalTime getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Date schedule) {
-        this.schedule = schedule;
+    public void setSchedule(int hour, int minutes) {
+        this.schedule = LocalTime.of(hour, minutes);
     }
 }

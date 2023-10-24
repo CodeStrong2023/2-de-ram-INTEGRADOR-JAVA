@@ -90,6 +90,7 @@ public class UserServices {
                 UserGrid.showLineUser(user);
             }
         }
+        AdminUserMenu.getMenu(SessionUser.user.getName());
     }
 
     public static void setUsers(ArrayList<User> users) {
