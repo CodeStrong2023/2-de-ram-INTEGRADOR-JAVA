@@ -1,9 +1,12 @@
 package function;
 
 import auth.SessionUser;
+import grid.FunctionGrid;
+import grid.UserGrid;
 import menus.AdminFunctionsMenu;
 import menus.AdminUserMenu;
 import menus.Menus;
+import menus.UserMenu;
 import movies.Movie;
 import movies.MovieServices;
 import utils.Utils;
@@ -25,6 +28,7 @@ public class FunctionServices {
         AdminFunctionsMenu.getMenu(SessionUser.user.getName());
     }
     public static void addMockFunction(){
+
         functions.add(new Function(MovieServices.movies.get(0), 3, 12, 30));
         functions.add(new Function(MovieServices.movies.get(1), 5, 15, 30));
         functions.add(new Function(MovieServices.movies.get(2), 1, 20, 30));
@@ -56,7 +60,17 @@ public class FunctionServices {
         }
         return  null;
     }
-    public static void showFunctions(){}
+    public static void showFunctions(){
+        FunctionGrid.generateHeader();
+        for (Function function : functions) {
+            FunctionGrid.showFunctionLine(function);
+        }
+        if(SessionUser.user.getRole().equals("admin")) {
+            AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+        } else {
+            UserMenu.getMenu(SessionUser.user.getName());
+        }
+    }
 
 
 }

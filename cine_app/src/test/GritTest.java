@@ -1,5 +1,7 @@
 package test;
 
+import function.FunctionServices;
+import grid.FunctionGrid;
 import grid.MovieGrid;
 import movies.MovieServices;
 import users.UserServices;
@@ -16,7 +18,11 @@ public class GritTest {
 //        grid2.generateHeaders();
 //        grid2.showUsers(UserServices.users);
         MovieServices.addMockMovie();
-        MovieGrid.generateHeader();
-        MovieGrid.showMovieLine(MovieServices.movies.get(0));
+//        MovieGrid.generateHeader();
+//        MovieGrid.showMovieLine(MovieServices.movies.get(0));
+        FunctionServices.addMockFunction();
+        FunctionGrid.generateHeader();
+        FunctionGrid.showFunctionLine(FunctionServices.functions.get(0));
+
     }
 }
