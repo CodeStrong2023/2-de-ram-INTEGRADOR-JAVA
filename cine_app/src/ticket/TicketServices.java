@@ -1,8 +1,12 @@
 package ticket;
 
+import auth.SessionUser;
 import function.Function;
+import function.FunctionServices;
 import menus.Menus;
+import menus.UserMenu;
 import users.User;
+import utils.Utils;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -24,6 +28,20 @@ public class TicketServices {
             }
         }
         return null;
+    }
+    public static void purchaseTicket() {
+        Menus.customHeaderMenu("Compra de entrada");
+        int functionId = Utils.intInput("Ingrese el número de la función: ");
+        Function function = FunctionServices.getFunctionById(functionId);
+        while (function == null) {
+            System.out.println("Número de función no válido");
+            functionId = Utils.intInput("Ingrese el número de la función: ");
+            function = FunctionServices.getFunctionById(functionId);
+        }
+       Ticket ticket = new Ticket(SessionUser.user, function, generateCode());
+        tickets.add(ticket);
+        showTicket(ticket.getCode());
+
     }
     public static void showTicket(String code){
         Ticket ticket = getTicketByCode(code);
@@ -47,6 +65,6 @@ public class TicketServices {
         System.out.println("N° de Sala: " + room);
         System.out.println("Fecha de compra: " + date);
         System.out.println("Código de compra: " + code);
-        Menus.customHeaderMenu("TICKET DE COMPRA");
+        UserMenu.getMenu(SessionUser.user.getName());
     }
 }
