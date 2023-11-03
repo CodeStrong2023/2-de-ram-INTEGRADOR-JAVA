@@ -49,7 +49,7 @@ public class FunctionServices {
         int room = Utils.intInput("Ingrese el ID de la película: ");
         function.setRoom(room);
         int hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ");
-        int minutes = Utils.intInput("Ingrese el horairo en minutos de 0 a 59: ");
+        int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");
         function.setSchedule(hour, minutes);
     }
     public static Function getFunctionById(int id){

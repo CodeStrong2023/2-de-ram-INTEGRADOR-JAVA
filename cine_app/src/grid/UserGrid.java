@@ -24,7 +24,7 @@ public class UserGrid {
         emailLine.append("-".repeat(40));
         roleLine.append("-".repeat(10));
         id.append("ID");
-        fullName.append("NOMBRE Y APLELIDO");
+        fullName.append("NOMBRE Y APELLIDO");
         age.append("EDAD");
         email.append("EMAIL");
         role.append("ROL");
