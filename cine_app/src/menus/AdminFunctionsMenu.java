@@ -37,7 +37,7 @@ public class AdminFunctionsMenu extends Menus {
                 FunctionServices.editFunction();
                 break;
             case 4:
-                // Agregar el método para elimiar la función
+                // Agregar el método para eliminar la función
 //                FunctionServices.;
                 break;
             case 5:
