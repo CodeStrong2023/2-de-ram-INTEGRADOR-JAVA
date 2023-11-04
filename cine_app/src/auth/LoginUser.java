@@ -39,7 +39,7 @@ public class LoginUser {
             }
         }
         while(LoginOption < 1 || LoginOption > 4){
-            LoginOption = Utils.intInput("ERROR || Si desea registrarse presione '1', para reintentar '2' o para volver al menú '3': ");
+            LoginOption = Utils.intInput("|X| ERROR |X| \nSi desea registrarse presione '1', para reintentar '2' o para volver al menú '3': ");
         }
         while(LoginOption <= 3 && LoginOption >= 1){
             if(LoginOption == 1){

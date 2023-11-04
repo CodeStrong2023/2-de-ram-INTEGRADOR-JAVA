@@ -9,20 +9,39 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import javax.xml.transform.Source;
+
 public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
-        Menus.customHeaderMenu("Agregar un usuario nuevo");
-        String name = Utils.stringInput("Ingrese su nombre: ");
-        String lastName = Utils.stringInput("Ingrese su apellido: ");
-        int age = Utils.intInput("Ingrese su edad: ");
-        String email = Utils.stringInput("Ingrese su email: ");
-        String password = Utils.stringInput("Ingrese su password: ");
-        users.add(new User(name, lastName, age, email, password));
-        System.out.println("Usuario agregado exitosamente");
-        Menus.maninMenu();
+        int justInCase = Utils.intInput("Confirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
+        if(justInCase > 0 && justInCase < 3) {
+            if(justInCase == 1){
+                Menus.customHeaderMenu("Agregar un usuario nuevo");
+                String name = Utils.stringInput("Ingrese su nombre: ");
+                String lastName = Utils.stringInput("Ingrese su apellido: ");
+                int age = Utils.intInput("Ingrese su edad: ");
+                String email = Utils.stringInput("Ingrese su email: ");
+                String password = Utils.stringInput("Ingrese su password: ");
+                users.add(new User(name, lastName, age, email, password));
+                System.out.println("Usuario agregado exitosamente");
+                Menus.maninMenu();
+            } else {
+                Menus.maninMenu();
+            }
+        } else {
+            while(justInCase < 0 || justInCase > 2){
+                justInCase = Utils.intInput("|X| ERROR |X| \nIngrese '1'(Registrarse) o '2'(Volver al menú principal): ");
+            }
+            if(justInCase == 1 ){
+                addUser();
+            } else{
+                Menus.maninMenu();
+            }
+        }
+        
     }
 
     public static void addMockUser() {
