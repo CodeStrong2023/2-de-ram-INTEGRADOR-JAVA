@@ -25,7 +25,7 @@ public class UserServices {
         Menus.maninMenu();
     }
 
-    public static void addMockUser() {
+  public static void addMockUser() {
         users.add(new User("Luis", "Mera", 37, "admin@admin.com", "admin", "admin"));
         users.add(new User("Juan", "Perez", 22, "jp@gmail.com", "123"));
         users.add(new User("Mariana", "Diaz", 25, "md@gmail.com", "123"));

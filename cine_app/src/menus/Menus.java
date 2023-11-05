@@ -47,7 +47,7 @@ public class Menus {
         System.out.println("1 - Login");
         System.out.println("2 - Registrarse");
         System.out.println("3 - Salir");
-        setOptionMenu(3);
+        //setOptionMenu(3);
         handleMenuOptions(option);
     }
 
