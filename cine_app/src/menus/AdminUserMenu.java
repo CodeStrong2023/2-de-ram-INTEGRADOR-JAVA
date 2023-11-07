@@ -38,7 +38,7 @@ public class AdminUserMenu extends Menus {
                 UserServices.editUser();
                 break;
             case 4:
-                //Agregar el método de eliminar
+                UserServices.deleteUser();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());

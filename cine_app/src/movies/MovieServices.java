@@ -66,6 +66,20 @@ public class MovieServices {
         return null;
     }
 
+    public static void deleteMovie() {
+        int id = Utils.intInput("Ingrese el ID de la película que quiere eleminar: ");
+        Movie movie = getMovieById(id);
+        if (movie == null) {
+            System.out.println("");
+            System.out.println("No se encontró ninguna película con ese ID");
+            AdminMovieMenu.getMenu(SessionUser.user.getName());
+        }
+        movie.setActive(false);
+        System.out.println("");
+        System.out.println("Película eliminada con éxito");
+        AdminMovieMenu.getMenu(SessionUser.user.getName());
+    }
+
     public static void showMovies(ArrayList<Movie> movies) {
         MovieGrid.generateHeader();
         for (Movie movie : movies) {

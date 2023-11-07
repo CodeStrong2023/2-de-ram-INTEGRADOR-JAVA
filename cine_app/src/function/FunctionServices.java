@@ -16,7 +16,8 @@ import java.util.Objects;
 
 public class FunctionServices {
     public static ArrayList<Function> functions = new ArrayList<>();
-    public static void addFunction(){
+
+    public static void addFunction() {
         Menus.customHeaderMenu("Crear una nueva función de cartelera: ");
         int idMovie = Utils.intInput("Ingrese el id de la película de cartelera: ");
         int room = Utils.intInput("Ingrese el N° de Sala: ");
@@ -27,16 +28,18 @@ public class FunctionServices {
         System.out.println("Función agregada con éxito");
         AdminFunctionsMenu.getMenu(SessionUser.user.getName());
     }
-    public static void addMockFunction(){
+
+    public static void addMockFunction() {
 
         functions.add(new Function(MovieServices.movies.get(0), 3, 12, 30));
         functions.add(new Function(MovieServices.movies.get(1), 5, 15, 30));
         functions.add(new Function(MovieServices.movies.get(2), 1, 20, 30));
     }
-    public static void editFunction(){
+
+    public static void editFunction() {
         int functionId = Utils.intInput("Ingrese el id: ");
         Function function = getFunctionById(functionId);
-        if(function == null) {
+        if (function == null) {
             System.out.println("");
             System.out.println("No se encontro la función");
             AdminFunctionsMenu.getMenu(SessionUser.user.getName());
@@ -52,20 +55,38 @@ public class FunctionServices {
         int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");
         function.setSchedule(hour, minutes);
     }
-    public static Function getFunctionById(int id){
-        for(Function function: functions) {
-            if(Objects.equals(function.getId(), id)) {
+
+    public static Function getFunctionById(int id) {
+        for (Function function : functions) {
+            if (Objects.equals(function.getId(), id)) {
                 return function;
             }
         }
-        return  null;
+        return null;
     }
-    public static void showFunctions(){
+
+    public static void deleteFunction() {
+        int id = Utils.intInput("Ingrese el ID de la función que quiere eleminar: ");
+        Function function = getFunctionById(id);
+        if (function == null) {
+            System.out.println("");
+            System.out.println("No se encontó la función con ese ID");
+            AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+        }
+        function.setActive(false);
+        System.out.println("");
+        System.out.println("La función se eliminó con éxito");
+        AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+    }
+
+    public static void showFunctions() {
         FunctionGrid.generateHeader();
         for (Function function : functions) {
-            FunctionGrid.showFunctionLine(function);
+            if (function.isActive()) {
+                FunctionGrid.showFunctionLine(function);
+            }
         }
-        if(SessionUser.user.getRole().equals("admin")) {
+        if (SessionUser.user.getRole().equals("admin")) {
             AdminFunctionsMenu.getMenu(SessionUser.user.getName());
         } else {
             UserMenu.getMenu(SessionUser.user.getName());

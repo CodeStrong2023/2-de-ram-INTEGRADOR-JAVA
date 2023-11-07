@@ -17,8 +17,8 @@ public class UserServices {
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
         int justInCase = Utils.intInput("Confirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
-        if(justInCase > 0 && justInCase < 3) {
-            if(justInCase == 1){
+        if (justInCase > 0 && justInCase < 3) {
+            if (justInCase == 1) {
                 Menus.customHeaderMenu("Agregar un usuario nuevo");
                 String name = Utils.stringInput("Ingrese su nombre: ");
                 String lastName = Utils.stringInput("Ingrese su apellido: ");
@@ -32,16 +32,16 @@ public class UserServices {
                 Menus.maninMenu();
             }
         } else {
-            while(justInCase < 0 || justInCase > 2){
+            while (justInCase < 0 || justInCase > 2) {
                 justInCase = Utils.intInput("|X| ERROR |X| \nIngrese '1'(Registrarse) o '2'(Volver al menú principal): ");
             }
-            if(justInCase == 1 ){
+            if (justInCase == 1) {
                 addUser();
-            } else{
+            } else {
                 Menus.maninMenu();
             }
         }
-        
+
     }
 
     public static void addMockUser() {
@@ -51,7 +51,7 @@ public class UserServices {
     }
 
     public static void editUser() {
-        int id = Utils.intInput("Ingrese el id: ");
+        int id = Utils.intInput("Ingrese el id del usuario a editar: ");
         User user = getUserById(id);
 
         if (user == null) {
@@ -102,10 +102,26 @@ public class UserServices {
         }
         return null;
     }
+
+    public static void deleteUser() {
+        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eleminar: ");
+        User user = getUserById(id);
+        if (user == null) {
+            System.out.println("");
+            System.out.println("No se encontró ningún usuario con ese ID");
+            AdminUserMenu.getMenu(SessionUser.user.getName());
+
+        }
+        user.setActive(false);
+        System.out.println("");
+        System.out.println("Usuario eliminado con éxito");
+            AdminUserMenu.getMenu(SessionUser.user.getName());
+    }
+
     public static void showUsers() {
         UserGrid.generateHeaders();
         for (User user : users) {
-            if(user.isActive()) {
+            if (user.isActive()) {
                 UserGrid.showLineUser(user);
             }
         }

@@ -37,7 +37,7 @@ public class AdminMovieMenu extends Menus {
                 MovieServices.editMovie();
                 break;
             case 4:
-                // Agregar el método de eliminar
+                MovieServices.deleteMovie();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());
