@@ -26,6 +26,7 @@ public class UserServices {
                 String email = Utils.stringInput("Ingrese su email: ");
                 String password = Utils.stringInput("Ingrese su password: ");
                 users.add(new User(name, lastName, age, email, password));
+                System.out.println("");
                 System.out.println("Usuario agregado exitosamente");
                 Menus.maninMenu();
             } else {
@@ -81,6 +82,8 @@ public class UserServices {
         if (!password.equalsIgnoreCase("no")) {
             user.setPassword(password);
         }
+        System.out.println("");
+        System.out.println("Usuario modificado con éxito");
         AdminUserMenu.getMenu(SessionUser.user.getName());
 
     }

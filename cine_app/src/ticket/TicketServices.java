@@ -66,5 +66,6 @@ public class TicketServices {
         System.out.println("Fecha de compra: " + date);
         System.out.println("Código de compra: " + code);
         UserMenu.getMenu(SessionUser.user.getName());
+        Menus.customHeaderMenu("CINE APP");
     }
 }

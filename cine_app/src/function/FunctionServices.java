@@ -25,6 +25,7 @@ public class FunctionServices {
         int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");// Si hay tiempo se verifica
         Movie movie = MovieServices.getMovieById(idMovie);
         functions.add(new Function(movie, room, hour, minutes));
+        System.out.println("");
         System.out.println("Función agregada con éxito");
         AdminFunctionsMenu.getMenu(SessionUser.user.getName());
     }
@@ -54,6 +55,9 @@ public class FunctionServices {
         int hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ");
         int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");
         function.setSchedule(hour, minutes);
+        System.out.println("");
+        System.out.println("Función editada con éxito");
+        AdminFunctionsMenu.getMenu(SessionUser.user.getName());
     }
 
     public static Function getFunctionById(int id) {
@@ -92,6 +96,4 @@ public class FunctionServices {
             UserMenu.getMenu(SessionUser.user.getName());
         }
     }
-
-
 }
