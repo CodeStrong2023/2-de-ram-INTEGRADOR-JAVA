@@ -9,20 +9,39 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import javax.xml.transform.Source;
+
 public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
-        Menus.customHeaderMenu("Agregar un usuario nuevo");
-        String name = Utils.stringInput("Ingrese su nombre: ");
-        String lastName = Utils.stringInput("Ingresee su apellido: ");
-        int age = Utils.intInput("Ingrese su edad: ");
-        String email = Utils.stringInput("Ingrese su email: ");
-        String password = Utils.stringInput("Ingrese su password: ");
-        users.add(new User(name, lastName, age, email, password));
-        System.out.println("Usuario agregado exitosamente");
-        Menus.maninMenu();
+        int justInCase = Utils.intInput("Confirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
+        if (justInCase > 0 && justInCase < 3) {
+            if (justInCase == 1) {
+                Menus.customHeaderMenu("Agregar un usuario nuevo");
+                String name = Utils.stringInput("Ingrese su nombre: ");
+                String lastName = Utils.stringInput("Ingrese su apellido: ");
+                int age = Utils.intInput("Ingrese su edad: ");
+                String email = Utils.stringInput("Ingrese su email: ");
+                String password = Utils.stringInput("Ingrese su password: ");
+                users.add(new User(name, lastName, age, email, password));
+                System.out.println("Usuario agregado exitosamente");
+                Menus.maninMenu();
+            } else {
+                Menus.maninMenu();
+            }
+        } else {
+            while (justInCase < 0 || justInCase > 2) {
+                justInCase = Utils.intInput("|X| ERROR |X| \nIngrese '1'(Registrarse) o '2'(Volver al menú principal): ");
+            }
+            if (justInCase == 1) {
+                addUser();
+            } else {
+                Menus.maninMenu();
+            }
+        }
+
     }
 
     public static void addMockUser() {
@@ -32,7 +51,7 @@ public class UserServices {
     }
 
     public static void editUser() {
-        int id = Utils.intInput("Ingrese el id: ");
+        int id = Utils.intInput("Ingrese el id del usuario a editar: ");
         User user = getUserById(id);
 
         if (user == null) {
@@ -41,24 +60,24 @@ public class UserServices {
             AdminUserMenu.getMenu(SessionUser.user.getName());
         }
 
-        Menus.customHeaderMenu("Ediatar el usuario " + user.getName() + " " + user.getLastName());
-        String name = Utils.stringInput("Ingrese su nombre (ingrese NO si no desea editar): ").toLowerCase();
+        Menus.customHeaderMenu("Editar el usuario " + user.getName() + " " + user.getLastName());
+        String name = Utils.stringInput("Ingrese su nombre (ingrese 'NO' si no desea editar): ").toLowerCase();
         if (!name.equalsIgnoreCase("no")) {
             user.setName(name);
         }
-        String lastName = Utils.stringInput("Ingresee su apellido (ingrese NO si no desea editar): ").toLowerCase();
+        String lastName = Utils.stringInput("Ingrese su apellido (ingrese 'NO' si no desea editar): ").toLowerCase();
         if (!lastName.equalsIgnoreCase("no")) {
             user.setLastName(lastName);
         }
-        String age = Utils.stringInput("Ingrese su edad (ingrese NO si no desea editar): ").toLowerCase();
+        String age = Utils.stringInput("Ingrese su edad (ingrese 'NO' si no desea editar): ").toLowerCase();
         if (!age.equalsIgnoreCase("no")) {
             user.setAge(Integer.parseInt(age));
         }
-        String email = Utils.stringInput("Ingrese su email (ingrese NO si no desea editar): ").toLowerCase();
+        String email = Utils.stringInput("Ingrese su email (ingrese 'NO' si no desea editar): ").toLowerCase();
         if (!email.equalsIgnoreCase("no")) {
             user.setEmai(email);
         }
-        String password = Utils.stringInput("Ingrese su password (ingrese NO si no desea editar): ").toLowerCase();
+        String password = Utils.stringInput("Ingrese su password (ingrese 'NO' si no desea editar): ").toLowerCase();
         if (!password.equalsIgnoreCase("no")) {
             user.setPassword(password);
         }
@@ -83,10 +102,26 @@ public class UserServices {
         }
         return null;
     }
+
+    public static void deleteUser() {
+        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eleminar: ");
+        User user = getUserById(id);
+        if (user == null) {
+            System.out.println("");
+            System.out.println("No se encontró ningún usuario con ese ID");
+            AdminUserMenu.getMenu(SessionUser.user.getName());
+
+        }
+        user.setActive(false);
+        System.out.println("");
+        System.out.println("Usuario eliminado con éxito");
+            AdminUserMenu.getMenu(SessionUser.user.getName());
+    }
+
     public static void showUsers() {
         UserGrid.generateHeaders();
         for (User user : users) {
-            if(user.isActive()) {
+            if (user.isActive()) {
                 UserGrid.showLineUser(user);
             }
         }

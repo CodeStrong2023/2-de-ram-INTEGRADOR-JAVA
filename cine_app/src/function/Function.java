@@ -49,6 +49,14 @@ public class Function {
         return schedule;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     public void setSchedule(int hour, int minutes) {
         this.schedule = LocalTime.of(hour, minutes);
     }

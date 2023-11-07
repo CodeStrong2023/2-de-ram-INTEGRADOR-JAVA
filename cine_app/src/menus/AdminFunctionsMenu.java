@@ -37,8 +37,7 @@ public class AdminFunctionsMenu extends Menus {
                 FunctionServices.editFunction();
                 break;
             case 4:
-                // Agregar el método para elimiar la función
-//                FunctionServices.;
+                FunctionServices.deleteFunction();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());
