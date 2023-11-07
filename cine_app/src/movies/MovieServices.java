@@ -18,7 +18,9 @@ public class MovieServices {
         int classification = Utils.intInput("Ingrese en número de calisificación: ");
         String gender = Utils.stringInput("Ingrese el género: ");
         movies.add(new Movie(title, classification, gender));
+        System.out.println("");
         System.out.println("Película agregada exitosamente");
+        AdminMovieMenu.getMenu(SessionUser.user.getName());
     }
 
     public static void addMockMovie() {
@@ -53,6 +55,8 @@ public class MovieServices {
             movie.setGender(gender);
         }
 
+        System.out.println("");
+        System.out.println("Película modificada con éxito");
         AdminMovieMenu.getMenu(SessionUser.user.getName());
 
     }
