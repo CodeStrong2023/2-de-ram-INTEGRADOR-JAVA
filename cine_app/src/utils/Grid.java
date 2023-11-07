@@ -10,7 +10,7 @@ public class Grid {
 
 
 
-    // TODO: Agregar una clase para cada una de las grillas para que tengas sus métodos perosnalizados dejar esta solo con las lineas
+    // TODO: Agregar una clase para cada una de las grillas para que tengas sus métodos personalizados dejar esta solo con las lineas
 
 
 
