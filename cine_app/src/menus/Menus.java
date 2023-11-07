@@ -61,6 +61,7 @@ public class Menus {
                 UserServices.addUser();
                 break;
             case 3:
+                System.out.println("");
                 System.out.println("Gracias por utilizar nuestra Cine App lo esperamos nuevamente");
                 break;
             default:
