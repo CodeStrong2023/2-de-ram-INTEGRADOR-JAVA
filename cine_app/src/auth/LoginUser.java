@@ -28,7 +28,7 @@ public class LoginUser {
         }
         System.out.println("");
         System.out.println("Email o contraseña no válida");
-        int LoginOption = Utils.intInput("Si desea registrarse presione '1', para reintentar '2' o para volver al menú '3': ");
+        int LoginOption = Utils.intInput("\nSi desea registrarse presione '1', para reintentar '2' o para volver al menú '3': ");
         while(LoginOption <= 3 && LoginOption > 0){
             if(LoginOption == 1){
                 UserServices.addUser();

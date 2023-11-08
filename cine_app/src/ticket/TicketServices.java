@@ -14,8 +14,8 @@ import java.util.UUID;
 
 public class TicketServices {
     public static ArrayList<Ticket> tickets = new ArrayList<>();
-    public static void addTicket(User user, Function function){
-        tickets.add(new Ticket(user, function, generateCode()));
+    public static void addTicket(User user, Function function, int QuantityT){
+        tickets.add(new Ticket(user, function, generateCode(),QuantityT));
     }
     private static String generateCode() {
         // Generamos un código alfanumérico random con UUID
@@ -38,11 +38,22 @@ public class TicketServices {
             functionId = Utils.intInput("Ingrese el número de la función: ");
             function = FunctionServices.getFunctionById(functionId);
         }
-       Ticket ticket = new Ticket(SessionUser.user, function, generateCode());
+        int QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+        while(QuantityT>100){
+            System.out.println("Supera el máximo de boletos posibles");
+            QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+        }
+        while(QuantityT<0){
+            System.out.println("Ingrese un número mayor a 0");
+            QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+        }
+
+        Ticket ticket = new Ticket(SessionUser.user, function, generateCode(),QuantityT);
         tickets.add(ticket);
         showTicket(ticket.getCode());
-
+        
     }
+
     public static void showTicket(String code){
         Ticket ticket = getTicketByCode(code);
         if(ticket == null) {
@@ -57,14 +68,16 @@ public class TicketServices {
         String schedule = ticket.getFunction().getSchedule().toString();
         String room = String.valueOf(ticket.getFunction().getRoom());
         String date = ticket.getDate();
+        int seatTicket = ticket.getQuantityT();
 
         Menus.customHeaderMenu("TICKET DE COMPRA");
-        System.out.println("Nombre y Aplellido: " + fullName );
+        System.out.println("Nombre y Apellido: " + fullName );
         System.out.println("Película: " + title);
         System.out.println("Horario: " + schedule);
         System.out.println("N° de Sala: " + room);
         System.out.println("Fecha de compra: " + date);
         System.out.println("Código de compra: " + code);
+        System.out.println("Cantidad de boletos: " + seatTicket);
         UserMenu.getMenu(SessionUser.user.getName());
     }
 }

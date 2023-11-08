@@ -16,7 +16,7 @@ public class UserServices {
 
     public static void addUser() {
         // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
-        int justInCase = Utils.intInput("Confirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
+        int justInCase = Utils.intInput("\nConfirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
         if(justInCase > 0 && justInCase < 3) {
             if(justInCase == 1){
                 Menus.customHeaderMenu("Agregar un usuario nuevo");

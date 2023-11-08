@@ -52,6 +52,7 @@ public class FunctionServices {
         int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");
         function.setSchedule(hour, minutes);
     }
+    
     public static Function getFunctionById(int id){
         for(Function function: functions) {
             if(Objects.equals(function.getId(), id)) {
@@ -60,6 +61,7 @@ public class FunctionServices {
         }
         return  null;
     }
+
     public static void showFunctions(){
         FunctionGrid.generateHeader();
         for (Function function : functions) {
