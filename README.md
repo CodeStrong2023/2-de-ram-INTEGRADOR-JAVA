@@ -1,6 +1,7 @@
 # Proyecto integrador - JAVA
 
 # 2 de ram
+![logo](https://media.discordapp.net/attachments/1105676363547037797/1123758807089164390/memory-card-icon-vector-isolated-white-background-logo-conce-memory-card-icon-vector-isolated-white-background-logo-concept-125788591.png?ex=655555f2&is=6542e0f2&hm=b1d7a4af96e808b9f1514356d464ecbde64beac2414d6be8a07a0d80d2583f21&=&width=393&height=393)
 
 ## Tecnicatura en programación de la UTN San Rafael, Mendoza
 ## Comisión 2023
