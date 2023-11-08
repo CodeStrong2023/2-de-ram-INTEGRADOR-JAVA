@@ -23,7 +23,31 @@
 
 - :ticket: **Tickets Personalizados**: Cada boleto tiene un código único y muestra información relevante sobre la función y el usuario.
 
+<hr>
 
+## Uso
+
+1. Clona el repositorio.
+
+```shell
+git clone https://github.com/tu-usuario/tu-repo.git
+```
+
+Compila el código Java.
+
+```shell
+javac -d bin -sourcepath src src/test/MenusTest.java
+```
+
+Ejecuta la aplicación.
+
+```shell
+java -cp bin test.MenusTest
+```
+
+**Interactúa con la aplicación a través de la consola.**
+
+<hr>
 
 ## Herramientas
 
@@ -37,10 +61,6 @@
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
-
-
-
-
 ### Integrantes:
 
 nombre |
@@ -51,6 +71,6 @@ Lorena Artieda
 Ramón Ramos
 Ignacio Dahuc
 Alan Pesalaccia
-Santiago Villarreal 
-Santiago Rosales 
-juan lara 
+Santiago Villarreal
+Santiago Rosales
+juan lara
