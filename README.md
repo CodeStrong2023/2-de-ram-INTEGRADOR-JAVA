@@ -49,6 +49,14 @@ java -cp bin test.MenusTest
 
 <hr>
 
+## Documentación
+
+- [Documentación de Java](https://docs.oracle.com/en/java/): Encuentra información detallada sobre el lenguaje de programación Java.
+
+- [GitHub Markdown Guide](https://guides.github.com/features/mastering-markdown/): Aprende a usar Markdown para formatear tu README y otros archivos en GitHub.
+
+
+
 ## Herramientas
 
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) 
