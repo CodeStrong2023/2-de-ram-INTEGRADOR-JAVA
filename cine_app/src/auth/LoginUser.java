@@ -6,13 +6,14 @@ import users.User;
 import users.UserServices;
 import utils.Utils;
 import menus.Menus;
+import utils.enums.MenuName;
 
 public class LoginUser {
 
     public static void login() {
         System.out.println("");
-        String email = Utils.stringInput("Ingrese su emai: ");
-        String password = Utils.stringInput("Ingrese su password: ");
+        String email = Utils.stringInput("Ingrese su emai: ", MenuName.USER);
+        String password = Utils.stringInput("Ingrese su password: ", MenuName.USER);
         User user = UserServices.getUserByEmail(email);
         if (user != null) {
             if (email.equals(user.getEmail()) && password.equals(user.getPassword())) {

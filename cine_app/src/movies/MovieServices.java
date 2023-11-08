@@ -1,10 +1,10 @@
 package movies;
 
-import auth.SessionUser;
 import grid.MovieGrid;
 import menus.AdminMovieMenu;
 import menus.Menus;
 import utils.Utils;
+import utils.enums.MenuName;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -14,13 +14,13 @@ public class MovieServices {
 
     public static void addMovie() {
         Menus.customHeaderMenu("Agregar una nueva Película");
-        String title = Utils.stringInput("Ingrese el título: ");
+        String title = Utils.stringInput("Ingrese el título: ", MenuName.MOVIE);
         int classification = Utils.intInput("Ingrese en número de calisificación: ");
-        String gender = Utils.stringInput("Ingrese el género: ");
+        String gender = Utils.stringInput("Ingrese el género: ", MenuName.MOVIE);
         movies.add(new Movie(title, classification, gender));
         System.out.println("");
         System.out.println("Película agregada exitosamente");
-        AdminMovieMenu.getMenu(SessionUser.user.getName());
+        AdminMovieMenu.getMenu();
     }
 
     public static void addMockMovie() {
@@ -32,32 +32,35 @@ public class MovieServices {
     }
 
     public static void editMovie() {
-        int id = Utils.intInput("Ingrese el id: ");
+        int id = Utils.intInputCheck("Ingrese el id de la película a editar: ");
+        if(id == 0) {
+            AdminMovieMenu.getMenu();
+        }
         Movie movie = getMovieById(id);
 
         if (movie == null) {
             System.out.println("");
             System.out.println("No se encontro la película");
-            AdminMovieMenu.getMenu(SessionUser.user.getName());
+            AdminMovieMenu.getMenu();
         }
 
         Menus.customHeaderMenu("Ediatar la película " + movie.getTitle());
-        String title = Utils.stringInput("Ingrese el título (ingrese NO si no desea editar: )").toLowerCase();
+        String title = Utils.stringInput("Ingrese el título (ingrese NO si no desea editar): ", MenuName.MOVIE);
         if (!title.equalsIgnoreCase("no")) {
             movie.setTitle(title);
         }
-        String classification = Utils.stringInput("Ingrese el número de calificación (ingrese NO si no desea editar): ").toLowerCase();
+        String classification = Utils.stringInput("Ingrese el número de calificación (ingrese NO si no desea editar): ", MenuName.MOVIE);
         if (!classification.equalsIgnoreCase("no")) {
             movie.setClassification(Integer.parseInt(classification));
         }
-        String gender = Utils.stringInput("Ingrese el género (ingrese NO si no desea editar): ").toLowerCase();
+        String gender = Utils.stringInput("Ingrese el género (ingrese NO si no desea editar): ", MenuName.MOVIE);
         if (!gender.equalsIgnoreCase("no")) {
             movie.setGender(gender);
         }
 
         System.out.println("");
         System.out.println("Película modificada con éxito");
-        AdminMovieMenu.getMenu(SessionUser.user.getName());
+        AdminMovieMenu.getMenu();
 
     }
 
@@ -76,12 +79,12 @@ public class MovieServices {
         if (movie == null) {
             System.out.println("");
             System.out.println("No se encontró ninguna película con ese ID");
-            AdminMovieMenu.getMenu(SessionUser.user.getName());
+            AdminMovieMenu.getMenu();
         }
         movie.setActive(false);
         System.out.println("");
         System.out.println("Película eliminada con éxito");
-        AdminMovieMenu.getMenu(SessionUser.user.getName());
+        AdminMovieMenu.getMenu();
     }
 
     public static void showMovies(ArrayList<Movie> movies) {
@@ -91,6 +94,6 @@ public class MovieServices {
                 MovieGrid.showMovieLine(movie);
             }
         }
-        AdminMovieMenu.getMenu(SessionUser.user.getName());
+        AdminMovieMenu.getMenu();
     }
 }

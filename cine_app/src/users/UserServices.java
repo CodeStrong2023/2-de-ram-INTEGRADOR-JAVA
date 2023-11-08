@@ -1,15 +1,13 @@
 package users;
 
-import auth.SessionUser;
 import grid.UserGrid;
 import menus.AdminUserMenu;
 import menus.Menus;
 import utils.Utils;
+import utils.enums.MenuName;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
-import javax.xml.transform.Source;
 
 public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
@@ -20,11 +18,11 @@ public class UserServices {
         if (justInCase > 0 && justInCase < 3) {
             if (justInCase == 1) {
                 Menus.customHeaderMenu("Agregar un usuario nuevo");
-                String name = Utils.stringInput("Ingrese su nombre: ");
-                String lastName = Utils.stringInput("Ingrese su apellido: ");
+                String name = Utils.stringInput("Ingrese su nombre: ", MenuName.USER);
+                String lastName = Utils.stringInput("Ingrese su apellido: ", MenuName.USER);
                 int age = Utils.intInput("Ingrese su edad: ");
-                String email = Utils.stringInput("Ingrese su email: ");
-                String password = Utils.stringInput("Ingrese su password: ");
+                String email = Utils.stringInput("Ingrese su email: ", MenuName.USER);
+                String password = Utils.stringInput("Ingrese su password: ", MenuName.USER);
                 users.add(new User(name, lastName, age, email, password));
                 System.out.println("");
                 System.out.println("Usuario agregado exitosamente");
@@ -52,39 +50,42 @@ public class UserServices {
     }
 
     public static void editUser() {
-        int id = Utils.intInput("Ingrese el id del usuario a editar: ");
+        int id = Utils.intInputCheck("Ingrese el id del usuario a editar: ");
+        if(id == 0) {
+            AdminUserMenu.getMenu();
+        }
         User user = getUserById(id);
 
         if (user == null) {
             System.out.println("");
             System.out.println("No se encontro el usuario");
-            AdminUserMenu.getMenu(SessionUser.user.getName());
+            AdminUserMenu.getMenu();
         }
 
         Menus.customHeaderMenu("Editar el usuario " + user.getName() + " " + user.getLastName());
-        String name = Utils.stringInput("Ingrese su nombre (ingrese 'NO' si no desea editar): ").toLowerCase();
+        String name = Utils.stringInput("Ingrese su nombre (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
         if (!name.equalsIgnoreCase("no")) {
             user.setName(name);
         }
-        String lastName = Utils.stringInput("Ingrese su apellido (ingrese 'NO' si no desea editar): ").toLowerCase();
+        String lastName = Utils.stringInput("Ingrese su apellido (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
         if (!lastName.equalsIgnoreCase("no")) {
             user.setLastName(lastName);
         }
-        String age = Utils.stringInput("Ingrese su edad (ingrese 'NO' si no desea editar): ").toLowerCase();
+        String age = Utils.stringInput("Ingrese su edad (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
         if (!age.equalsIgnoreCase("no")) {
             user.setAge(Integer.parseInt(age));
         }
-        String email = Utils.stringInput("Ingrese su email (ingrese 'NO' si no desea editar): ").toLowerCase();
+        String email = Utils.stringInput("Ingrese su email (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
         if (!email.equalsIgnoreCase("no")) {
             user.setEmai(email);
         }
-        String password = Utils.stringInput("Ingrese su password (ingrese 'NO' si no desea editar): ").toLowerCase();
+        String password = Utils.stringInput("Ingrese su password (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
         if (!password.equalsIgnoreCase("no")) {
             user.setPassword(password);
         }
         System.out.println("");
         System.out.println("Usuario modificado con éxito");
-        AdminUserMenu.getMenu(SessionUser.user.getName());
+        AdminUserMenu.getMenu();
 
     }
 
@@ -112,13 +113,13 @@ public class UserServices {
         if (user == null) {
             System.out.println("");
             System.out.println("No se encontró ningún usuario con ese ID");
-            AdminUserMenu.getMenu(SessionUser.user.getName());
+            AdminUserMenu.getMenu();
 
         }
         user.setActive(false);
         System.out.println("");
         System.out.println("Usuario eliminado con éxito");
-            AdminUserMenu.getMenu(SessionUser.user.getName());
+            AdminUserMenu.getMenu();
     }
 
     public static void showUsers() {
@@ -128,7 +129,7 @@ public class UserServices {
                 UserGrid.showLineUser(user);
             }
         }
-        AdminUserMenu.getMenu(SessionUser.user.getName());
+        AdminUserMenu.getMenu();
     }
 
     public static void setUsers(ArrayList<User> users) {
