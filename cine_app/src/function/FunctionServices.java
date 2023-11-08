@@ -2,9 +2,7 @@ package function;
 
 import auth.SessionUser;
 import grid.FunctionGrid;
-import grid.UserGrid;
 import menus.AdminFunctionsMenu;
-import menus.AdminUserMenu;
 import menus.Menus;
 import menus.UserMenu;
 import movies.Movie;
@@ -27,7 +25,7 @@ public class FunctionServices {
         functions.add(new Function(movie, room, hour, minutes));
         System.out.println("");
         System.out.println("Función agregada con éxito");
-        AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+        AdminFunctionsMenu.getMenu();
     }
 
     public static void addMockFunction() {
@@ -38,26 +36,29 @@ public class FunctionServices {
     }
 
     public static void editFunction() {
-        int functionId = Utils.intInput("Ingrese el id: ");
+        int functionId = Utils.intInputCheck("Ingrese el ID de la función a editar: ");
+        if (functionId == 0) {
+            AdminFunctionsMenu.getMenu();
+        }
         Function function = getFunctionById(functionId);
         if (function == null) {
             System.out.println("");
             System.out.println("No se encontro la función");
-            AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+            AdminFunctionsMenu.getMenu();
         }
 
         Menus.customHeaderMenu("Editar la función");
-        int idMovie = Utils.intInput("Ingrese el ID de la película: ".toLowerCase());
+        int idMovie = Utils.intInput("Ingrese el ID de la película: ");
         Movie movie = MovieServices.getMovieById(idMovie);
         function.setMovie(movie);
-        int room = Utils.intInput("Ingrese el ID de la película: ");
+        int room = Utils.intInput("Ingrese el número de sala de la película: ");
         function.setRoom(room);
         int hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ");
         int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ");
         function.setSchedule(hour, minutes);
         System.out.println("");
         System.out.println("Función editada con éxito");
-        AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+        AdminFunctionsMenu.getMenu();
     }
 
     public static Function getFunctionById(int id) {
@@ -75,12 +76,12 @@ public class FunctionServices {
         if (function == null) {
             System.out.println("");
             System.out.println("No se encontó la función con ese ID");
-            AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+            AdminFunctionsMenu.getMenu();
         }
         function.setActive(false);
         System.out.println("");
         System.out.println("La función se eliminó con éxito");
-        AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+        AdminFunctionsMenu.getMenu();
     }
 
     public static void showFunctions() {
@@ -91,7 +92,7 @@ public class FunctionServices {
             }
         }
         if (SessionUser.user.getRole().equals("admin")) {
-            AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+            AdminFunctionsMenu.getMenu();
         } else {
             UserMenu.getMenu(SessionUser.user.getName());
         }

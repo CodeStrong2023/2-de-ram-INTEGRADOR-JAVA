@@ -10,7 +10,7 @@ public class AdminUserMenu extends Menus {
         super();
     }
 
-    public static void getMenu(String name) {
+    public static void getMenu() {
         instance.adminUserMenu();
     }
 

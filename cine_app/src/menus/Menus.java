@@ -31,6 +31,7 @@ public class Menus {
     }
 
     protected static void setOptionMenu(int maxOptions) {
+
         System.out.print("Seleccione una opción: ");
         String userOption = scanner.nextLine();
 
@@ -74,9 +75,11 @@ public class Menus {
             case 3:
                 System.out.println("");
                 System.out.println("Gracias por utilizar nuestra Cine App lo esperamos nuevamente");
+                System.exit(0);
                 break;
             default:
                 System.out.println("Salida");
+                break;
         }
     }
 
