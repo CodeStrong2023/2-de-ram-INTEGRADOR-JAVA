@@ -7,6 +7,8 @@
 ## Comisión 2023
 <hr>
 
+# CINE APP
+
 <p>Cine App es una aplicación de gestión de cine que te permite comprar boletos, administrar películas y funciones de cartelera, y brinda una experiencia cinematográfica completa. Esta aplicación ha sido desarrollada en Java y proporciona una interfaz de consola intuitiva para usuarios y administradores.</p>
 
 ## Características
