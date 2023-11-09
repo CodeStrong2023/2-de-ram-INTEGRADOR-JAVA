@@ -27,35 +27,28 @@ public class Utils {
         return data;
     }
 
-    public static int intInput(String message) {
-        System.out.print(message);
-        int resp = Integer.parseInt(Utils.scanner.nextLine());
-        return resp;
-    }
-
-    public static int intInputCheck(String message) {
+    public static int intInput(String message, MenuName menuName) {
         System.out.println("Debe ingresar un valor numérico o (N) para volve");
         System.out.print(message);
         String option = scanner.nextLine();
-        while (!option.matches("\\d+") && !option.equalsIgnoreCase("n")) {
+
+        while (!option.matches("\\d+") ) {
+            if(option.equalsIgnoreCase("n")) {
+                returnMenu(menuName);
+                scanner.close();
+            }
             System.out.println("");
             System.out.println("Debe ingresar un valor numérico o (N) para volve");
             System.out.print(message);
             option = scanner.nextLine();
         }
-
-        if (option.equalsIgnoreCase("n")) {
-            return 0;
-        }
-
         return Integer.parseInt(option);
     }
-
     // Este método designa a que menú retorna de a cuerdo a lo que se seteo en cada input
-    private static void returnMenu(MenuName menuName) {
+    public static void returnMenu(MenuName menuName) {
         switch (menuName) {
             case USER:
-                Menus.maninMenu();
+                UserMenu.getMenu(SessionUser.user.getName());
                 break;
             case USER_ADMIN:
                 AdminUserMenu.getMenu();

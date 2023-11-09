@@ -1,5 +1,6 @@
 package users;
 
+import auth.SessionUser;
 import grid.UserGrid;
 import menus.AdminUserMenu;
 import menus.Menus;
@@ -13,54 +14,44 @@ public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
-        // Evaluar la posibilidad de hacer unos métodos de verificación de datos como validators en el package utils
-        int justInCase = Utils.intInput("Confirme si desea registrarse ingresando '1'(Si) o '2'(Volver al menú principal): ");
-        if (justInCase > 0 && justInCase < 3) {
-            if (justInCase == 1) {
-                Menus.customHeaderMenu("Agregar un usuario nuevo");
-                String name = Utils.stringInput("Ingrese su nombre: ", MenuName.USER);
-                String lastName = Utils.stringInput("Ingrese su apellido: ", MenuName.USER);
-                int age = Utils.intInput("Ingrese su edad: ");
-                String email = Utils.stringInput("Ingrese su email: ", MenuName.USER);
-                String password = Utils.stringInput("Ingrese su password: ", MenuName.USER);
-                users.add(new User(name, lastName, age, email, password));
-                System.out.println("");
-                System.out.println("Usuario agregado exitosamente");
-                Menus.maninMenu();
-            } else {
-                Menus.maninMenu();
-            }
+        // Verificamos el tipo de usuario
+        String userType = SessionUser.user.getRole();
+        // Determinamos el enum dependiendo el tipo de usuario para enviar en los input
+        MenuName menu = userType.equals("user") ? MenuName.USER : MenuName.USER_ADMIN;
+
+        Menus.customHeaderMenu("Agregar un usuario nuevo");
+        String name = Utils.stringInput("Ingrese su nombre: ", menu);
+        String lastName = Utils.stringInput("Ingrese su apellido: ", menu);
+        int age = Utils.intInput("Ingrese su edad: ", menu);
+        String email = Utils.stringInput("Ingrese su email: ", menu);
+        String password = Utils.stringInput("Ingrese su password: ", menu);
+        // Queda pendiente la opción de agregar otro usuario admin
+       /* if(userType.equalsIgnoreCase("admin")) {
+            String role = Utils.stringInput("")
+        }*/
+        users.add(new User(name, lastName, age, email, password));
+        System.out.println("");
+        System.out.println("Usuario agregado exitosamente");
+
+        // Verificamos el tipo de usuario para determinar a que ménu retorna
+        if (userType.equalsIgnoreCase("user")) {
+            Menus.maninMenu();
         } else {
-            while (justInCase < 0 || justInCase > 2) {
-                justInCase = Utils.intInput("|X| ERROR |X| \nIngrese '1'(Registrarse) o '2'(Volver al menú principal): ");
-            }
-            if (justInCase == 1) {
-                addUser();
-            } else {
-                Menus.maninMenu();
-            }
+            AdminUserMenu.getMenu();
         }
+
 
     }
 
     public static void addMockUser() {
-        users.add(new User("Luis", "Mera", 37, "admin@admin.com", "admin", "admin"));
+        users.add(new User("Admin", "", 37, "a", "a", "admin"));
         users.add(new User("Juan", "Perez", 22, "jp@gmail.com", "123"));
         users.add(new User("Mariana", "Diaz", 25, "md@gmail.com", "123"));
     }
 
     public static void editUser() {
-        int id = Utils.intInputCheck("Ingrese el id del usuario a editar: ");
-        if(id == 0) {
-            AdminUserMenu.getMenu();
-        }
+        int id = Utils.intInput("Ingrese el id del usuario a editar: ", MenuName.USER_ADMIN);
         User user = getUserById(id);
-
-        if (user == null) {
-            System.out.println("");
-            System.out.println("No se encontro el usuario");
-            AdminUserMenu.getMenu();
-        }
 
         Menus.customHeaderMenu("Editar el usuario " + user.getName() + " " + user.getLastName());
         String name = Utils.stringInput("Ingrese su nombre (ingrese 'NO' si no desea editar): ", MenuName.USER_ADMIN);
@@ -89,6 +80,7 @@ public class UserServices {
 
     }
 
+
     public static User getUserByEmail(String email) {
         for (User user : users) {
             if (Objects.equals(user.getEmail(), email)) {
@@ -104,11 +96,14 @@ public class UserServices {
                 return user;
             }
         }
+        System.out.println("");
+        System.out.println("No se encontro el usuario");
+        AdminUserMenu.getMenu();
         return null;
     }
 
     public static void deleteUser() {
-        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eleminar: ");
+        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eleminar: ", MenuName.USER_ADMIN);
         User user = getUserById(id);
         if (user == null) {
             System.out.println("");
@@ -119,7 +114,7 @@ public class UserServices {
         user.setActive(false);
         System.out.println("");
         System.out.println("Usuario eliminado con éxito");
-            AdminUserMenu.getMenu();
+        AdminUserMenu.getMenu();
     }
 
     public static void showUsers() {
