@@ -28,7 +28,7 @@ public class Utils {
     }
 
     public static int intInput(String message, MenuName menuName) {
-        System.out.println("Debe ingresar un valor numérico o (N) para volve");
+        System.out.println("Debe ingresar un valor numérico o (N) para volver");
         System.out.print(message);
         String option = scanner.nextLine();
 
@@ -38,7 +38,7 @@ public class Utils {
                 scanner.close();
             }
             System.out.println("");
-            System.out.println("Debe ingresar un valor numérico o (N) para volve");
+            System.out.println("Debe ingresar un valor numérico o (N) para volver");
             System.out.print(message);
             option = scanner.nextLine();
         }
