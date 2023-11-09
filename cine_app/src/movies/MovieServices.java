@@ -15,7 +15,7 @@ public class MovieServices {
     public static void addMovie() {
         Menus.customHeaderMenu("Agregar una nueva Película");
         String title = Utils.stringInput("Ingrese el título: ", MenuName.MOVIE);
-        int classification = Utils.intInput("Ingrese en número de calisificación: ");
+        int classification = Utils.intInput("Ingrese en número de calisificación: ", MenuName.MOVIE);
         String gender = Utils.stringInput("Ingrese el género: ", MenuName.MOVIE);
         movies.add(new Movie(title, classification, gender));
         System.out.println("");
@@ -32,17 +32,8 @@ public class MovieServices {
     }
 
     public static void editMovie() {
-        int id = Utils.intInputCheck("Ingrese el id de la película a editar: ");
-        if(id == 0) {
-            AdminMovieMenu.getMenu();
-        }
+        int id = Utils.intInput("Ingrese el id de la película a editar: ", MenuName.MOVIE);
         Movie movie = getMovieById(id);
-
-        if (movie == null) {
-            System.out.println("");
-            System.out.println("No se encontro la película");
-            AdminMovieMenu.getMenu();
-        }
 
         Menus.customHeaderMenu("Ediatar la película " + movie.getTitle());
         String title = Utils.stringInput("Ingrese el título (ingrese NO si no desea editar): ", MenuName.MOVIE);
@@ -70,17 +61,27 @@ public class MovieServices {
                 return movie;
             }
         }
+        System.out.println("");
+        System.out.println("ERROR: No se encontro la película con ese ID");
+        AdminMovieMenu.getMenu();
+        return null;
+    }
+    public static Movie getMovieById(int id, MenuName menuName) {
+        for (Movie movie : movies) {
+            if (Objects.equals(movie.getId(), id)) {
+                return movie;
+            }
+        }
+        System.out.println("");
+        System.out.println("ERROR: No se encontro la película con ese ID");
+        Utils.returnMenu(menuName);
         return null;
     }
 
     public static void deleteMovie() {
-        int id = Utils.intInput("Ingrese el ID de la película que quiere eleminar: ");
+        int id = Utils.intInput("Ingrese el ID de la película que quiere eleminar: ", MenuName.MOVIE);
         Movie movie = getMovieById(id);
-        if (movie == null) {
-            System.out.println("");
-            System.out.println("No se encontró ninguna película con ese ID");
-            AdminMovieMenu.getMenu();
-        }
+
         movie.setActive(false);
         System.out.println("");
         System.out.println("Película eliminada con éxito");
