@@ -15,7 +15,7 @@ public class MovieServices {
     public static void addMovie() {
         Menus.customHeaderMenu("Agregar una nueva Película");
         String title = Utils.stringInput("Ingrese el título: ", MenuName.MOVIE);
-        int classification = Utils.intInput("Ingrese en número de calisificación: ", MenuName.MOVIE);
+        int classification = Utils.intInput("Ingrese el número de calificación: ", MenuName.MOVIE);
         String gender = Utils.stringInput("Ingrese el género: ", MenuName.MOVIE);
         movies.add(new Movie(title, classification, gender));
         System.out.println("");
@@ -79,7 +79,7 @@ public class MovieServices {
     }
 
     public static void deleteMovie() {
-        int id = Utils.intInput("Ingrese el ID de la película que quiere eleminar: ", MenuName.MOVIE);
+        int id = Utils.intInput("Ingrese el ID de la película que quiere eliminar: ", MenuName.MOVIE);
         Movie movie = getMovieById(id);
 
         movie.setActive(false);
