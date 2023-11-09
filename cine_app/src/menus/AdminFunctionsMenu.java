@@ -10,7 +10,7 @@ public class AdminFunctionsMenu extends Menus {
         super();
     }
 
-    public static void getMenu(String name) {
+    public static void getMenu() {
         instance.adminFunctionsMenu();
     }
 
@@ -37,8 +37,7 @@ public class AdminFunctionsMenu extends Menus {
                 FunctionServices.editFunction();
                 break;
             case 4:
-                // Agregar el método para eliminar la función
-//                FunctionServices.;
+                FunctionServices.deleteFunction();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());

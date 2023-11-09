@@ -7,6 +7,7 @@ import menus.Menus;
 import menus.UserMenu;
 import users.User;
 import utils.Utils;
+import utils.enums.MenuName;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -31,11 +32,11 @@ public class TicketServices {
     }
     public static void purchaseTicket() {
         Menus.customHeaderMenu("Compra de entrada");
-        int functionId = Utils.intInput("Ingrese el número de la función: ");
+        int functionId = Utils.intInput("Ingrese el número de la función: ", MenuName.USER);
         Function function = FunctionServices.getFunctionById(functionId);
         while (function == null) {
             System.out.println("Número de función no válido");
-            functionId = Utils.intInput("Ingrese el número de la función: ");
+            functionId = Utils.intInput("Ingrese el número de la función: ", MenuName.USER);
             function = FunctionServices.getFunctionById(functionId);
         }
         int QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
@@ -79,5 +80,6 @@ public class TicketServices {
         System.out.println("Código de compra: " + code);
         System.out.println("Cantidad de boletos: " + seatTicket);
         UserMenu.getMenu(SessionUser.user.getName());
+        Menus.customHeaderMenu("CINE APP");
     }
 }

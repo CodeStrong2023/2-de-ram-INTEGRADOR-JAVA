@@ -10,7 +10,7 @@ public class AdminMovieMenu extends Menus {
         super();
     }
 
-    public static void getMenu(String name) {
+    public static void getMenu() {
         instance.adminMoviesMenu();
     }
 
@@ -37,7 +37,7 @@ public class AdminMovieMenu extends Menus {
                 MovieServices.editMovie();
                 break;
             case 4:
-                // Agregar el método de eliminar
+                MovieServices.deleteMovie();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());

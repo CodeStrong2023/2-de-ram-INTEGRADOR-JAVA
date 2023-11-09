@@ -10,7 +10,7 @@ public class AdminUserMenu extends Menus {
         super();
     }
 
-    public static void getMenu(String name) {
+    public static void getMenu() {
         instance.adminUserMenu();
     }
 
@@ -38,7 +38,7 @@ public class AdminUserMenu extends Menus {
                 UserServices.editUser();
                 break;
             case 4:
-                //Agregar el método de eliminar
+                UserServices.deleteUser();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName());

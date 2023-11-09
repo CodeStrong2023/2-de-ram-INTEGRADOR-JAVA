@@ -17,6 +17,7 @@ public class UserGrid {
     private static StringBuilder role = new StringBuilder();
 
     public static void generateHeaders() {
+        clearData();
         // Texto de las cabeceras
         idLine.append("-".repeat(4));
         fullNameLine.append("-".repeat(50));
@@ -58,12 +59,18 @@ public class UserGrid {
         String userLine = id.toString() + fullName + age + email + role;
         System.out.println(userLine);
     }
+
     private static void clearData() {
         id.delete(0, id.length());
         fullName.delete(0, fullName.length());
         age.delete(0, age.length());
         email.delete(0, email.length());
         role.delete(0, role.length());
+        idLine.delete(0, idLine.length());
+        fullNameLine.delete(0, fullNameLine.length());
+        ageLine.delete(0, ageLine.length());
+        emailLine.delete(0, emailLine.length());
+        roleLine.delete(0, roleLine.length());
     }
 
 }
