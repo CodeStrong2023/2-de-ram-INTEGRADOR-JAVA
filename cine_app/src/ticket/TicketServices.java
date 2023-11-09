@@ -43,7 +43,7 @@ public class TicketServices {
             System.out.println("Supera el máximo de boletos posibles");
             QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
         }
-        while(QuantityT<0){
+        while(QuantityT<=0){
             System.out.println("Ingrese un número mayor a 0");
             QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
         }
