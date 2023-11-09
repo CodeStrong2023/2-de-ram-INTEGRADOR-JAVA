@@ -14,10 +14,15 @@ public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
+        // Modificar para que se pueda ingresar
+
         // Verificamos el tipo de usuario
-        String userType = SessionUser.user.getRole();
+        String userType = SessionUser.user.getRole(); // poner en un if el getRole
+        if(userType == null) {
+            userType = "user";
+        }
         // Determinamos el enum dependiendo el tipo de usuario para enviar en los input
-        MenuName menu = userType.equals("user") ? MenuName.USER : MenuName.USER_ADMIN;
+        MenuName menu = userType.equals("user") ? MenuName.MAIN : MenuName.USER_ADMIN;
 
         Menus.customHeaderMenu("Agregar un usuario nuevo");
         String name = Utils.stringInput("Ingrese su nombre: ", menu);

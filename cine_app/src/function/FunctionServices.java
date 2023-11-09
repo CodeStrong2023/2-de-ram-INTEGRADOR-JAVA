@@ -20,8 +20,16 @@ public class FunctionServices {
         Menus.customHeaderMenu("Crear una nueva función de cartelera: ");
         int idMovie = Utils.intInput("Ingrese el id de la película de cartelera: ", MenuName.FUNCTION);
         int room = Utils.intInput("Ingrese el N° de Sala: ", MenuName.FUNCTION);
-        int hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ", MenuName.FUNCTION); // Si hay tiempo se verifica
-        int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ", MenuName.FUNCTION);// Si hay tiempo se verifica
+        int hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ", MenuName.FUNCTION);
+        while (hour < 0 || hour > 24) {
+            System.out.println("ERROR: debe ingresar un número entre 0 a 24 para indicar la hora");
+            hour = Utils.intInput("Ingrese el horario en hs de 0 a 24: ", MenuName.FUNCTION);
+        }
+        int minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ", MenuName.FUNCTION);
+        while (minutes < 0 || minutes > 59) {
+            System.out.println("ERROR: debe ingresar un número entre 0 a 59 para indicar los minutos");
+            minutes = Utils.intInput("Ingrese el horario en minutos de 0 a 59: ", MenuName.FUNCTION);
+        }
         Movie movie = MovieServices.getMovieById(idMovie, MenuName.FUNCTION);
         functions.add(new Function(movie, room, hour, minutes));
         System.out.println("");
