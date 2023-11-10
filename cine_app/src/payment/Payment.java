@@ -7,15 +7,17 @@ public class Payment {
     private int SecretCode;
     private String CreditCardName;
     private String Expiration;
+    private String ServiceCard;
 
     //constructor
 
-    public Payment(long CreditCardNumber, int SecretCode, String CreditCardName, String Expiration){
+    public Payment(long CreditCardNumber, int SecretCode, String CreditCardName, String Expiration, String ServiceCard){
         this.CreditCard = true;
         this.CreditCardNumber = CreditCardNumber;
         this.SecretCode = SecretCode;
         this.CreditCardName = CreditCardName;
         this.Expiration = Expiration;
+        this.ServiceCard = ServiceCard;
     }
 
     //getters and setters
@@ -60,10 +62,19 @@ public class Payment {
         this.Expiration = Expiration;
     }
 
+    public String getServiceCard(){
+        return this.ServiceCard;
+    }
+
+    public void setServiceCard(String ServiceCard){
+        this.ServiceCard = ServiceCard;
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("\nTarjeta de crédito: ").append(this.CreditCard);
+        sb.append("\nServicio: ").append(this.ServiceCard);
         sb.append("\nNombre: ").append(this.CreditCardName);
         sb.append("\nNúmero: ").append(this.CreditCardNumber);
         sb.append("\nExpiración: ").append(this.Expiration);
