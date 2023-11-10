@@ -44,6 +44,11 @@ public class Utils {
         }
         return Integer.parseInt(option);
     }
+    public static int intInput2(String message){
+        System.out.print(message);
+        int resp = Integer.parseInt(Utils.scanner.nextLine());
+        return resp;
+    }
     // Este método designa a que menú retorna de a cuerdo a lo que se seteo en cada input
     public static void returnMenu(MenuName menuName) {
         switch (menuName) {
