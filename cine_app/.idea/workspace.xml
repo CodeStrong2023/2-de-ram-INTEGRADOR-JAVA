@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe0eee12-d2c8-48b6-b0ed-0bf05cd23d89" name="Changes" comment="Corrección de menus de registro" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Luis-Mera" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2WLjvl841q8lY6QAVQtkfpU6scq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe0eee12-d2c8-48b6-b0ed-0bf05cd23d89" name="Changes" comment="" />
+      <created>1696518988376</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696518988376</updated>
+      <workItem from="1696518989390" duration="1310000" />
+      <workItem from="1696879320958" duration="6453000" />
+      <workItem from="1697237466714" duration="11946000" />
+      <workItem from="1697515095634" duration="7381000" />
+      <workItem from="1697554332039" duration="12872000" />
+      <workItem from="1697925682560" duration="596000" />
+      <workItem from="1697943681091" duration="3987000" />
+      <workItem from="1698027666665" duration="951000" />
+      <workItem from="1698110651288" duration="8682000" />
+      <workItem from="1698722696985" duration="13000" />
+      <workItem from="1699138146853" duration="52000" />
+      <workItem from="1699138210842" duration="88000" />
+      <workItem from="1699325133920" duration="6146000" />
+      <workItem from="1699365247327" duration="6957000" />
+      <workItem from="1699469531159" duration="9355000" />
+      <workItem from="1699627044328" duration="998000" />
+      <workItem from="1699628063047" duration="39000" />
+    </task>
+    <task id="LOCAL-00001" summary="Inicio del proyecto">
+      <option name="closed" value="true" />
+      <created>1696519091034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696519091034</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Login de usuario y session de usuario funcionando, agregado un mock de usuarios para testing">
+      <option name="closed" value="true" />
+      <created>1696883629955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696883629955</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Modificada la posición de archivos">
+      <option name="closed" value="true" />
+      <created>1696883815896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696883815896</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Agregada la clase Movie y MovieServices, mejorada la clase User">
+      <option name="closed" value="true" />
+      <created>1697242826012</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697242826012</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Correcciones en en algunas clases y avances con el UML">
+      <option name="closed" value="true" />
+      <created>1697310994546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697310994546</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Corrección de los menús y opciones para que quede más prolijo">
+      <option name="closed" value="true" />
+      <created>1697516963089</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697516963089</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Corrección de los menús con los métodos que ya están creados">
+      <option name="closed" value="true" />
+      <created>1698018036176</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698018036176</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Grid de Usuarios armada en UserGrid2 para testeo">
+      <option name="closed" value="true" />
+      <created>1698028620573</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698028620573</updated>
+    </task>
+    <task id="LOCAL-00009" summary="FunctionServices completado salvo showFunctions falta hacer los grid">
+      <option name="closed" value="true" />
+      <created>1698117623984</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698117623984</updated>
+    </task>
+    <task id="LOCAL-00010" summary="FunctionGrid completado y showFunctions funcionando">
+      <option name="closed" value="true" />
+      <created>1698120227878</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698120227878</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Headers corregidos">
+      <option name="closed" value="true" />
+      <created>1699327832459</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699327832459</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Modificados los headers, funciones para eliminar agregadas">
+      <option name="closed" value="true" />
+      <created>1699330128592</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699330128592</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Refactorizado código con loop en el LoginUser">
+      <option name="closed" value="true" />
+      <created>1699331214927</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699331214927</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Algunas correcciones, test realizado con algunos puntos pendientes de corregir y mejorar">
+      <option name="closed" value="true" />
+      <created>1699371673543</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699371673543</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Modificaciones en los menús para evitar loops y chequeos de numeros, agregado los enum para retorno de menú">
+      <option name="closed" value="true" />
+      <created>1699482282502</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699482282502</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Corrección de menus de registro">
+      <option name="closed" value="true" />
+      <created>1699627423844</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699627423844</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Inicio del proyecto" />
+    <MESSAGE value="Login de usuario y session de usuario funcionando, agregado un mock de usuarios para testing" />
+    <MESSAGE value="Modificada la posición de archivos" />
+    <MESSAGE value="Agregada la clase Movie y MovieServices, mejorada la clase User" />
+    <MESSAGE value="Correcciones en en algunas clases y avances con el UML" />
+    <MESSAGE value="Corrección de los menús y opciones para que quede más prolijo" />
+    <MESSAGE value="Corrección de los menús con los métodos que ya están creados" />
+    <MESSAGE value="Grid de Usuarios armada en UserGrid2 para testeo" />
+    <MESSAGE value="FunctionServices completado salvo showFunctions falta hacer los grid" />
+    <MESSAGE value="FunctionGrid completado y showFunctions funcionando" />
+    <MESSAGE value="Headers corregidos" />
+    <MESSAGE value="Modificados los headers, funciones para eliminar agregadas" />
+    <MESSAGE value="Refactorizado código con loop en el LoginUser" />
+    <MESSAGE value="Algunas correcciones, test realizado con algunos puntos pendientes de corregir y mejorar" />
+    <MESSAGE value="Modificaciones en los menús para evitar loops y chequeos de numeros, agregado los enum para retorno de menú" />
+    <MESSAGE value="Corrección de menus de registro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de menus de registro" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
