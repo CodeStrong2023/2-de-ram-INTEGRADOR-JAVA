@@ -37,7 +37,7 @@ public class Menus {
 
         while (!userOption.matches("\\d+")) {
             System.out.println("");
-            System.out.println("Debe ingresar un varlor numérico del 1 al " + maxOptions);
+            System.out.println("Debe ingresar un valor numérico del 1 al " + maxOptions);
             System.out.print("Seleccione una opción: ");
             userOption = scanner.nextLine();
 

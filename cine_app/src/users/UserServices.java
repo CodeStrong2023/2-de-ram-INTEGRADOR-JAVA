@@ -108,7 +108,7 @@ public class UserServices {
     }
 
     public static void deleteUser() {
-        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eleminar: ", MenuName.USER_ADMIN);
+        int id = Utils.intInput("Ingrese el ID del Usuario que quiere eliminar: ", MenuName.USER_ADMIN);
         User user = getUserById(id);
         if (user == null) {
             System.out.println("");
@@ -136,5 +136,7 @@ public class UserServices {
         UserServices.users = users;
     }
 
-
+    public static void ShowButacas(){
+        
+    }
 }

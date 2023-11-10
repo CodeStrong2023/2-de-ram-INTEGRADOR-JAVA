@@ -12,6 +12,7 @@ public class Function {
     private LocalTime schedule;
     private boolean isActive;
     private static int idCount;
+    private int seat;
 
     public Function(Movie movie, int room, int hours, int minutes) {
         this.movie = movie;
@@ -19,7 +20,7 @@ public class Function {
         this.schedule = LocalTime.of(hours, minutes);
         this.isActive = true;
         this.id = ++idCount;
-
+        this.seat = 100;
     }
 
     public Function() {
@@ -59,5 +60,13 @@ public class Function {
 
     public void setSchedule(int hour, int minutes) {
         this.schedule = LocalTime.of(hour, minutes);
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
     }
 }
