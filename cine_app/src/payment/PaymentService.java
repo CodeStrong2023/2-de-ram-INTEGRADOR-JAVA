@@ -19,13 +19,17 @@ public class PaymentService {
             System.out.println("Ingrese un número entre el '1' y el '2': ");
             confirmation = Integer.parseInt(entrada.nextLine());
         }
-        System.out.println("Si su tarjeta es mastercard ingrese '1', si su tarjeta es visa ingrese '2':");
-        int service = Integer.parseInt(entrada.nextLine());
-        while(service != 1 && service != 2){
-            System.out.println("Ingrese un número entre el '1' y el '2': ");
-            service = Integer.parseInt(entrada.nextLine());
+        if(confirmation == 2){
+            CreditCard1.setCreditCard(false);
+            UserMenu.getMenu(SessionUser.user.getName());
         }
         if(confirmation == 1){
+            System.out.println("Si su tarjeta es mastercard ingrese '1', si su tarjeta es visa ingrese '2':");
+            int service = Integer.parseInt(entrada.nextLine());
+            while(service != 1 && service != 2){
+            System.out.println("Ingrese un número entre el '1' y el '2': ");
+            service = Integer.parseInt(entrada.nextLine());
+            }
             if(service == 2){
                 CreditCard1.setServiceCard("Visa");
             }
@@ -41,10 +45,8 @@ public class PaymentService {
             CreditCard1.setExpiration(entrada.nextLine());
             System.out.println("Ingrese el código de seguridad: ");
             CreditCard1.setSecretCode(Integer.parseInt(entrada.nextLine()));
-        }else{
-            CreditCard1.setCreditCard(false);
-            UserMenu.getMenu(SessionUser.user.getName());
         }
+        
         System.out.println(CreditCard1.toString());
     }
 }
