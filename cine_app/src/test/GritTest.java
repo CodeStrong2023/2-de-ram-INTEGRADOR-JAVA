@@ -8,7 +8,7 @@ import users.UserServices;
 
 public class GritTest {
     public static void main(String[] args) {
-        UserServices.addMockUser();
+        //UserServices.addMockUser();
 //        Grid.userGrid(UserServices.users);
 //        UserGrid grid = new UserGrid();
 //        grid.generateHeaders();

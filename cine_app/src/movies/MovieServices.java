@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MovieServices {
+    // Lista que almacena todas las películas en el sistema
     public static ArrayList<Movie> movies = new ArrayList<>();
-
+    // Método para agregar una nueva película a la lista
     public static void addMovie() {
         Menus.customHeaderMenu("Agregar una nueva Película");
         String title = Utils.stringInput("Ingrese el título: ", MenuName.MOVIE);
@@ -22,7 +23,7 @@ public class MovieServices {
         System.out.println("Película agregada exitosamente");
         AdminMovieMenu.getMenu();
     }
-
+    // Método para agregar películas de muestra a la lista
     public static void addMockMovie() {
         movies.add(new Movie("The Equalizer 3", 16, "Acción y aventura"));
         movies.add(new Movie("The Exorcist: Believer", 13, "Terror, Suspenso"));
@@ -30,7 +31,7 @@ public class MovieServices {
         movies.add(new Movie("El duelo", 16, "Comedia"));
         movies.add(new Movie("PAW Patrol: The Mighty Movie", 10, "Acción, Aventuras, Animación"));
     }
-
+    // Método para editar la información de una película existente
     public static void editMovie() {
         int id = Utils.intInput("Ingrese el id de la película a editar: ", MenuName.MOVIE);
         Movie movie = getMovieById(id);
@@ -54,7 +55,7 @@ public class MovieServices {
         AdminMovieMenu.getMenu();
 
     }
-
+    // Método para obtener una película por su id
     public static Movie getMovieById(int id) {
         for (Movie movie : movies) {
             if (Objects.equals(movie.getId(), id)) {
@@ -66,6 +67,9 @@ public class MovieServices {
         AdminMovieMenu.getMenu();
         return null;
     }
+
+    // Método para mostrar las películas activas con el formato grid
+
     public static Movie getMovieById(int id, MenuName menuName) {
         for (Movie movie : movies) {
             if (Objects.equals(movie.getId(), id)) {
@@ -88,6 +92,7 @@ public class MovieServices {
         AdminMovieMenu.getMenu();
     }
 
+
     public static void showMovies(ArrayList<Movie> movies) {
         MovieGrid.generateHeader();
         for (Movie movie : movies) {
@@ -95,6 +100,10 @@ public class MovieServices {
                 MovieGrid.showMovieLine(movie);
             }
         }
+
+        AdminMovieMenu.getMenu(SessionUser.user.getName()); //Retorna al menu de admin
+
         AdminMovieMenu.getMenu();
+
     }
 }
