@@ -8,7 +8,7 @@ import menus.UserMenu;
 import users.User;
 import utils.Utils;
 import utils.enums.MenuName;
-
+import payment.PaymentService;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -39,15 +39,17 @@ public class TicketServices {
             functionId = Utils.intInput("Ingrese el número de la función: ", MenuName.USER);
             function = FunctionServices.getFunctionById(functionId);
         }
-        int QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+        int QuantityT = Utils.intInput2("Valor de la entrada general $1200 \nCuantas entradas desea comprar?: ");
         while(QuantityT>100){
             System.out.println("Supera el máximo de boletos posibles");
-            QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+            QuantityT = Utils.intInput2("Cuantas entradas desea comprar?: ");
         }
         while(QuantityT<=0){
             System.out.println("Ingrese un número mayor a 0");
-            QuantityT = Utils.intInput("Cuantas entradas desea comprar?: ");
+            QuantityT = Utils.intInput2("Cuantas entradas desea comprar?: ");
         }
+
+        PaymentService.ToPay();
 
         Ticket ticket = new Ticket(SessionUser.user, function, generateCode(),QuantityT);
         tickets.add(ticket);
@@ -70,6 +72,7 @@ public class TicketServices {
         String room = String.valueOf(ticket.getFunction().getRoom());
         String date = ticket.getDate();
         int seatTicket = ticket.getQuantityT();
+        int TotalValue = (ticket.getTicketValue())*seatTicket;
 
         Menus.customHeaderMenu("TICKET DE COMPRA");
         System.out.println("Nombre y Apellido: " + fullName );
@@ -79,6 +82,8 @@ public class TicketServices {
         System.out.println("Fecha de compra: " + date);
         System.out.println("Código de compra: " + code);
         System.out.println("Cantidad de boletos: " + seatTicket);
+        System.out.println("Valor de la entrada individual: $" + ticket.getTicketValue());
+        System.out.println("Valor total (" + ticket.getQuantityT() + "): $" + TotalValue);
         UserMenu.getMenu(SessionUser.user.getName());
         Menus.customHeaderMenu("CINE APP");
     }

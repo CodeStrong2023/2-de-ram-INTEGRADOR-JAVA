@@ -12,6 +12,7 @@ public class Ticket {
     private User user;
     private Function function;
     private int QuantityT;
+    private int ticketValue;
 
     public Ticket(User user, Function function, String code, int QuantityT) {
         this.user = user;
@@ -19,6 +20,7 @@ public class Ticket {
         this.code = code;
         this.date = this.generateDate();
         this.QuantityT = QuantityT;
+        this.ticketValue = 1200;
     }
 
     private String generateDate() {
@@ -48,6 +50,9 @@ public class Ticket {
 
    public void setQuantityT(int QuantityT){
         this.QuantityT = QuantityT;
+   }
+   public int getTicketValue(){
+        return this.ticketValue;
    }
 
 }

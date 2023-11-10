@@ -6,11 +6,11 @@ public class Payment {
     private long CreditCardNumber;
     private int SecretCode;
     private String CreditCardName;
-    private int Expiration;
+    private String Expiration;
 
     //constructor
 
-    public Payment(long CreditCardNumber, int SecretCode, String CreditCardName, int Expiration){
+    public Payment(long CreditCardNumber, int SecretCode, String CreditCardName, String Expiration){
         this.CreditCard = true;
         this.CreditCardNumber = CreditCardNumber;
         this.SecretCode = SecretCode;
@@ -20,7 +20,7 @@ public class Payment {
 
     //getters and setters
 
-    public boolean CreditCard(){
+    public boolean isCreditCard(){
         return this.CreditCard;
     }
 
@@ -52,18 +52,18 @@ public class Payment {
         this.CreditCardName = CreditCardName;
     }
 
-    public int getExpiration(){
+    public String getExpiration(){
         return this.Expiration;
     }
 
-    public void setExpiration(int Expiration){
+    public void setExpiration(String Expiration){
         this.Expiration = Expiration;
     }
 
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Tarjeta de crédito: ").append(this.CreditCard);
+        sb.append("\nTarjeta de crédito: ").append(this.CreditCard);
         sb.append("\nNombre: ").append(this.CreditCardName);
         sb.append("\nNúmero: ").append(this.CreditCardNumber);
         sb.append("\nExpiración: ").append(this.Expiration);
