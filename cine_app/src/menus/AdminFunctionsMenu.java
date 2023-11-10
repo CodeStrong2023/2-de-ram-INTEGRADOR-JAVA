@@ -10,8 +10,13 @@ public class AdminFunctionsMenu extends Menus {
     private AdminFunctionsMenu() {
         super(); // Llama al constructor de la clase base (Menus)
     }
+
     // Método estático para obtener la instancia única de la clase
     public static void getMenu(String name) {
+
+
+    public static void getMenu() {
+
         instance.adminFunctionsMenu();
     }
 
@@ -39,8 +44,7 @@ public class AdminFunctionsMenu extends Menus {
                 FunctionServices.editFunction();
                 break;
             case 4:
-                // Agregar el método para elimiar la función
-//                FunctionServices.;
+                FunctionServices.deleteFunction();
                 break;
             case 5:
                 AdminMenu.getMenu(SessionUser.user.getName()); // Vuelve al menú principal de administrador

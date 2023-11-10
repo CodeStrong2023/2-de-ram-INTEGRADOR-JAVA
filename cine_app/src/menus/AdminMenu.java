@@ -25,13 +25,13 @@ public class AdminMenu extends Menus {
     private void handleMenuOptions(int option) {
         switch (option) {
             case 1:
-                AdminMovieMenu.getMenu(SessionUser.user.getName());
+                AdminMovieMenu.getMenu();
                 break;
             case 2:
-                AdminUserMenu.getMenu(SessionUser.user.getName());
+                AdminUserMenu.getMenu();
                 break;
             case 3:
-                AdminFunctionsMenu.getMenu(SessionUser.user.getName());
+                AdminFunctionsMenu.getMenu();
                 break;
             case 4:
                 SessionUser.setSessionUser(null);

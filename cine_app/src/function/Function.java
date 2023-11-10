@@ -6,6 +6,16 @@ import java.time.LocalTime;
 import java.util.Date;
 
 public class Function {
+lorena-artieda
+
+    private int id;
+    private Movie movie;
+    private int room;
+    private LocalTime schedule;
+    private boolean isActive;
+    private static int idCount;
+    private int seat;
+main
 
     // Atributos de la clase
     private int id; // Identificador único de la función
@@ -22,7 +32,7 @@ public class Function {
         this.schedule = LocalTime.of(hours, minutes);
         this.isActive = true;
         this.id = ++idCount;
-
+        this.seat = 100;
     }
 
     //Constructor por defecto vacio
@@ -54,7 +64,23 @@ public class Function {
         return schedule;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     public void setSchedule(int hour, int minutes) {
         this.schedule = LocalTime.of(hour, minutes);
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
     }
 }

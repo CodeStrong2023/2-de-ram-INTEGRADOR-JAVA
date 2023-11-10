@@ -13,6 +13,7 @@ public class MovieGrid {
     private static StringBuilder gender = new StringBuilder();
 
     public static void generateHeader() {
+        clearData();
         idLine.append("-".repeat(4));
         titleLine.append("-".repeat(50));
         clasificationLine.append("-".repeat(17));
@@ -52,5 +53,9 @@ public class MovieGrid {
         title.delete(0, title.length());
         clasification.delete(0, clasification.length());
         gender.delete(0, gender.length());
+        idLine.delete(0, idLine.length());
+        titleLine.delete(0, titleLine.length());
+        clasificationLine.delete(0, clasificationLine.length());
+        genderLine.delete(0, genderLine.length());
     }
 }

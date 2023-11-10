@@ -2,6 +2,7 @@ package menus;
 
 import auth.LoginUser;
 import users.UserServices;
+import utils.Utils;
 
 import java.util.Scanner;
 
@@ -30,15 +31,27 @@ public class Menus {
     }
 
     protected static void setOptionMenu(int maxOptions) {
+
         System.out.print("Seleccione una opción: ");
-        int userOption = Integer.parseInt(scanner.nextLine());
-        while (userOption <= 0 || userOption > maxOptions) {
-            System.out.println("Seleccione una opción válida del 1 al " + maxOptions);
+        String userOption = scanner.nextLine();
+
+        while (!userOption.matches("\\d+")) {
+            System.out.println("");
+            System.out.println("Debe ingresar un valor numérico del 1 al " + maxOptions);
             System.out.print("Seleccione una opción: ");
-            userOption = Integer.parseInt(scanner.nextLine());
+            userOption = scanner.nextLine();
 
         }
-        setOption(userOption);
+
+        while (Integer.parseInt(userOption) <= 0 || Integer.parseInt(userOption) > maxOptions) {
+
+            System.out.println("Seleccione una opción válida del 1 al " + maxOptions);
+            System.out.print("Seleccione una opción: ");
+            userOption = scanner.nextLine();
+        }
+
+
+        setOption(Integer.parseInt(userOption));
     }
 
     // Métodos de menus
@@ -57,13 +70,16 @@ public class Menus {
                 LoginUser.login();
                 break;
             case 2:
-                UserServices.addUser();
+                UserServices.registerUser();
                 break;
             case 3:
+                System.out.println("");
                 System.out.println("Gracias por utilizar nuestra Cine App lo esperamos nuevamente");
+                System.exit(0);
                 break;
             default:
                 System.out.println("Salida");
+                break;
         }
     }
 

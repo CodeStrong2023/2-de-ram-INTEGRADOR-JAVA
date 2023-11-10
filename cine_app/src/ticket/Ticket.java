@@ -12,13 +12,21 @@ public class Ticket {
     private String date;
     private User user;
     private Function function;
+    private int QuantityT;
+    private int ticketValue;
+
 
     //Constructor
     public Ticket(User user, Function function, String code) {
+
+    public Ticket(User user, Function function, String code, int QuantityT) {
+
         this.user = user;
         this.function = function;
         this.code = code;
         this.date = this.generateDate();
+        this.QuantityT = QuantityT;
+        this.ticketValue = 1200;
     }
     // Método privado para generar la fecha actual en el formato "dd/MM/yyyy"
 
@@ -43,4 +51,16 @@ public class Ticket {
     public Function getFunction() {
         return function;
     }
+
+   public int getQuantityT(){
+        return QuantityT;
+   }
+
+   public void setQuantityT(int QuantityT){
+        this.QuantityT = QuantityT;
+   }
+   public int getTicketValue(){
+        return this.ticketValue;
+   }
+
 }
