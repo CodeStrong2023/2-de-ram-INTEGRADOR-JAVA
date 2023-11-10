@@ -1,7 +1,7 @@
 package grid;
 
 import movies.Movie;
-
+// Clase que se encarga de generar y mostrar líneas de cuadrícula para películas
 public class MovieGrid {
     private static StringBuilder idLine = new StringBuilder();
     private static StringBuilder titleLine = new StringBuilder();

@@ -2,7 +2,9 @@ package grid;
 
 import function.Function;
 
+// Clase que se encarga de generar y mostrar líneas de cuadrícula para las funciones de cartelera
 public class FunctionGrid {
+    // Variables estáticas para almacenar datos de las funciones
     private static StringBuilder idLine = new StringBuilder();
     private static StringBuilder titleLine = new StringBuilder();
     private static StringBuilder roomLine = new StringBuilder();
@@ -12,6 +14,7 @@ public class FunctionGrid {
     private static StringBuilder room = new StringBuilder();
     private static StringBuilder schedule = new StringBuilder();
 
+    // Creamos el encabezado con guiones '-' y establecemos títulos para cada columna
     public static void generateHeader() {
         clearData();
         idLine.append("-".repeat(4));
@@ -47,6 +50,7 @@ public class FunctionGrid {
         String functionLine = id.toString() + title + room + schedule;
         System.out.println(functionLine);
     }
+    //Reseteamos los Datos
     private static void clearData() {
         id.delete(0, id.length());
         room.delete(0, room.length());

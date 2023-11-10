@@ -1,6 +1,7 @@
 package users;
 
 public class User {
+    //Atributos
     private int id;
     private String name;
     private String lastName;
@@ -11,6 +12,7 @@ public class User {
     private boolean isActive;
     private static int countId;
 
+    // Constructor para crear un nuevo usuario
     public User(String name, String lastName, int age, String email, String password) {
         this.name = name;
         this.lastName = lastName;
@@ -21,7 +23,7 @@ public class User {
         this.isActive = true; // Por defecto todos los usuarios que se crean van a estar activos
         this.id = ++countId;
     }
-
+    // Constructor que permite especificar el rol del usuario al crearlo
     public User(String name, String lastName, int age, String email, String password, String role) {
         this.name = name;
         this.lastName = lastName;
@@ -33,7 +35,7 @@ public class User {
         this.id = ++countId;
     }
 
-
+    //Getters y Setters
     public String getName() {
         return name;
     }

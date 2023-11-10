@@ -2,18 +2,20 @@ package menus;
 
 import auth.SessionUser;
 import function.FunctionServices;
-
+// Clase que representa el menú de administración de funciones para usuarios con rol de administrador
 public class AdminFunctionsMenu extends Menus {
+    // Instancia única de la clase para seguir el patrón de diseño Singleton
     private static final AdminFunctionsMenu instance = new AdminFunctionsMenu();
-
+    // Constructor privado para evitar la creación de instancias fuera de la clase
     private AdminFunctionsMenu() {
-        super();
+        super(); // Llama al constructor de la clase base (Menus)
     }
-
+    // Método estático para obtener la instancia única de la clase
     public static void getMenu(String name) {
         instance.adminFunctionsMenu();
     }
 
+    // Método privado que define el menú de administración de funciones
     private void adminFunctionsMenu() {
         super.customHeaderMenu("ADMINISTRACIÓN DE FUNCIONES");
         System.out.println("1 - Mostrar todas las funciones");
@@ -24,7 +26,7 @@ public class AdminFunctionsMenu extends Menus {
         super.setOptionMenu(5);
         this.handleMenuOptions(super.option);
     }
-
+    // Método privado que maneja las opciones del menú
     private void handleMenuOptions(int option) {
         switch (option) {
             case 1:
@@ -41,10 +43,10 @@ public class AdminFunctionsMenu extends Menus {
 //                FunctionServices.;
                 break;
             case 5:
-                AdminMenu.getMenu(SessionUser.user.getName());
+                AdminMenu.getMenu(SessionUser.user.getName()); // Vuelve al menú principal de administrador
                 break;
             default:
-                System.out.println("Salida");
+                System.out.println("Salida"); // Mensaje en caso de opción inválida
         }
     }
 }
