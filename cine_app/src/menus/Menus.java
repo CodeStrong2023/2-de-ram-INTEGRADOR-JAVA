@@ -70,7 +70,7 @@ public class Menus {
                 LoginUser.login();
                 break;
             case 2:
-                UserServices.addUser();
+                UserServices.registerUser();
                 break;
             case 3:
                 System.out.println("");
