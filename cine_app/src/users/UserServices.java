@@ -14,33 +14,38 @@ public class UserServices {
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
-        // Verificamos el tipo de usuario
-        String userType = SessionUser.user.getRole();
-        // Determinamos el enum dependiendo el tipo de usuario para enviar en los input
-        MenuName menu = userType.equals("user") ? MenuName.USER : MenuName.USER_ADMIN;
 
         Menus.customHeaderMenu("Agregar un usuario nuevo");
-        String name = Utils.stringInput("Ingrese su nombre: ", menu);
-        String lastName = Utils.stringInput("Ingrese su apellido: ", menu);
-        int age = Utils.intInput("Ingrese su edad: ", menu);
-        String email = Utils.stringInput("Ingrese su email: ", menu);
-        String password = Utils.stringInput("Ingrese su password: ", menu);
-        // Queda pendiente la opción de agregar otro usuario admin
-       /* if(userType.equalsIgnoreCase("admin")) {
-            String role = Utils.stringInput("")
-        }*/
+        String name = Utils.stringInput("Ingrese su nombre: ", MenuName.USER_ADMIN);
+        String lastName = Utils.stringInput("Ingrese su apellido: ", MenuName.USER_ADMIN);
+        int age = Utils.intInput("Ingrese su edad: ", MenuName.USER_ADMIN);
+        String email = Utils.stringInput("Ingrese su email: ", MenuName.USER_ADMIN);
+        String password = Utils.stringInput("Ingrese su password: ", MenuName.USER_ADMIN);
+        String role = Utils.stringInput("Ingrese el rol user o admin: ", MenuName.USER_ADMIN);
+        while (!role.equalsIgnoreCase("user") && !role.equalsIgnoreCase("admin")) {
+            System.out.println("ERROR: solo se puede ingresar el rol user o admin");
+            role = Utils.stringInput("Ingrese el rol user o admin:", MenuName.USER_ADMIN);
+        }
+        users.add(new User(name, lastName, age, email, password, role));
+        System.out.println("");
+        System.out.println("Usuario agregado exitosamente");
+
+        AdminUserMenu.getMenu();
+    }
+
+    public static void registerUser() {
+
+        Menus.customHeaderMenu("Agregar un usuario nuevo");
+        String name = Utils.stringInput("Ingrese su nombre: ", MenuName.MAIN);
+        String lastName = Utils.stringInput("Ingrese su apellido: ", MenuName.MAIN);
+        int age = Utils.intInput("Ingrese su edad: ", MenuName.MAIN);
+        String email = Utils.stringInput("Ingrese su email: ", MenuName.MAIN);
+        String password = Utils.stringInput("Ingrese su password: ", MenuName.MAIN);
         users.add(new User(name, lastName, age, email, password));
         System.out.println("");
         System.out.println("Usuario agregado exitosamente");
 
-        // Verificamos el tipo de usuario para determinar a que ménu retorna
-        if (userType.equalsIgnoreCase("user")) {
-            Menus.maninMenu();
-        } else {
-            AdminUserMenu.getMenu();
-        }
-
-
+        Menus.maninMenu();
     }
 
     public static void addMockUser() {
@@ -131,7 +136,7 @@ public class UserServices {
         UserServices.users = users;
     }
 
-    public static void ShowButacas(){
-        
+    public static void ShowButacas() {
+
     }
 }
