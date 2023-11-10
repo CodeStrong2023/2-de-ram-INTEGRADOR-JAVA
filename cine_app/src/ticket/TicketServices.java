@@ -19,7 +19,7 @@ public class TicketServices {
         tickets.add(new Ticket(user, function, generateCode(),QuantityT));
     }
     private static String generateCode() {
-        // Generamos un código alfanumérico random con UUID
+        // Generamos un código alfanumérico randoq con UUID
         return UUID.randomUUID().toString().substring(0, 6).toUpperCase();
     }
     public static Ticket getTicketByCode(String code){
@@ -39,19 +39,19 @@ public class TicketServices {
             functionId = Utils.intInput("Ingrese el número de la función: ", MenuName.USER);
             function = FunctionServices.getFunctionById(functionId);
         }
-        int QuantityT = Utils.intInput2("Valor de la entrada general $1200 \nCuantas entradas desea comprar?: ");
-        while(QuantityT>100){
+        int quantityT = Utils.intInput("Valor de la entrada general $1200 \nCuantas entradas desea comprar?: ", MenuName.USER);
+        while(quantityT>100){
             System.out.println("Supera el máximo de boletos posibles");
-            QuantityT = Utils.intInput2("Cuantas entradas desea comprar?: ");
+            quantityT = Utils.intInput("Cuantas entradas desea comprar?: ", MenuName.USER);
         }
-        while(QuantityT<=0){
+        while(quantityT<=0){
             System.out.println("Ingrese un número mayor a 0");
-            QuantityT = Utils.intInput2("Cuantas entradas desea comprar?: ");
+            quantityT = Utils.intInput("Cuantas entradas desea comprar?: ", MenuName.USER);
         }
 
         PaymentService.ToPay();
 
-        Ticket ticket = new Ticket(SessionUser.user, function, generateCode(),QuantityT);
+        Ticket ticket = new Ticket(SessionUser.user, function, generateCode(),quantityT);
         tickets.add(ticket);
         showTicket(ticket.getCode());
         
