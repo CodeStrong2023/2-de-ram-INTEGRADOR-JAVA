@@ -1,13 +1,15 @@
 package movies;
-
+// Clase que representa una película en el sistema
 public class Movie {
+    // Atributos de la clase para almacenar información sobre la película
     private int id = 0;
     private String title;
     private int classification;
     private String gender;
     private boolean isActive;
-
+    // Contador estático para asignar un identificador único a cada película
     private static int countId;
+    // Constructor de la clase para crear una nueva película con información proporcionada por el usuario
     public Movie(String title, int classification, String gender) {
         this.title = title;
         this.classification = classification;
@@ -15,7 +17,7 @@ public class Movie {
         this.isActive = true;
         this.id = ++countId;
     }
-
+    //GETTERS Y SETTERS
     public int getId() {
         return this.id;
     }

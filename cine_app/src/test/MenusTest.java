@@ -16,7 +16,7 @@ public class MenusTest {
 
     public static void main(String[] args) {
 //        AdminUserMenu.getMenu("Luis");
-        UserServices.addMockUser();
+        //UserServices.addMockUser();
         MovieServices.addMockMovie();
         FunctionServices.addMockFunction();
         Menus.maninMenu();

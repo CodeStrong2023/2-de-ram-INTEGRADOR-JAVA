@@ -20,7 +20,7 @@ public class UserMenu extends Menus {
         System.out.println("1 - Comprar una entrada");
         System.out.println("2 - Mostrar las funciones");
         System.out.println("3 - Salir");
-        super.setOptionMenu(3);
+        //super.setOptionMenu(3);
         handleMenuOptions(super.option);
     }
 

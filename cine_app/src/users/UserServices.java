@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserServices {
+    // Lista que almacena todos los usuarios del sistema
     public static ArrayList<User> users = new ArrayList<>();
 
     public static void addUser() {
@@ -48,12 +49,18 @@ public class UserServices {
         Menus.maninMenu();
     }
 
+    // Método para agregar usuarios de prueba al sistema
+  public static void addMockUser() {
+        users.add(new User("Luis", "Mera", 37, "admin@admin.com", "admin", "admin"));
+
+
     public static void addMockUser() {
         users.add(new User("Admin", "", 37, "a", "a", "admin"));
+
         users.add(new User("Juan", "Perez", 22, "jp@gmail.com", "123"));
         users.add(new User("Mariana", "Diaz", 25, "md@gmail.com", "123"));
     }
-
+    // Método para editar la información de un usuario existente en el sistema
     public static void editUser() {
         int id = Utils.intInput("Ingrese el id del usuario a editar: ", MenuName.USER_ADMIN);
         User user = getUserById(id);
@@ -85,7 +92,7 @@ public class UserServices {
 
     }
 
-
+    //Metodo para obtener el usuario por su email
     public static User getUserByEmail(String email) {
         for (User user : users) {
             if (Objects.equals(user.getEmail(), email)) {
@@ -94,7 +101,7 @@ public class UserServices {
         }
         return null;
     }
-
+    // Método para obtener un usuario por su identificador único
     public static User getUserById(int id) {
         for (User user : users) {
             if (Objects.equals(user.getId(), id)) {
@@ -106,6 +113,9 @@ public class UserServices {
         AdminUserMenu.getMenu();
         return null;
     }
+
+    //Metodo que muestra todos los usuarios
+
 
     public static void deleteUser() {
         int id = Utils.intInput("Ingrese el ID del Usuario que quiere eliminar: ", MenuName.USER_ADMIN);
@@ -122,6 +132,7 @@ public class UserServices {
         AdminUserMenu.getMenu();
     }
 
+
     public static void showUsers() {
         UserGrid.generateHeaders();
         for (User user : users) {
@@ -131,7 +142,7 @@ public class UserServices {
         }
         AdminUserMenu.getMenu();
     }
-
+    // Método para establecer la lista de usuarios del sistema
     public static void setUsers(ArrayList<User> users) {
         UserServices.users = users;
     }

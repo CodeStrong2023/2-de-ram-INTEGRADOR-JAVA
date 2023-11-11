@@ -6,6 +6,8 @@ import java.time.LocalTime;
 import java.util.Date;
 
 public class Function {
+lorena-artieda
+
     private int id;
     private Movie movie;
     private int room;
@@ -13,7 +15,17 @@ public class Function {
     private boolean isActive;
     private static int idCount;
     private int seat;
+main
 
+    // Atributos de la clase
+    private int id; // Identificador único de la función
+    private Movie movie; // Película asociada a la función
+    private int room; // Número de la sala
+    private LocalTime schedule; // Hora de inicio de la función
+    private boolean isActive; // Indica si la función está activa
+    private static int idCount; // Contador estático para asignar identificadores únicos
+
+    //Constructor con parametros
     public Function(Movie movie, int room, int hours, int minutes) {
         this.movie = movie;
         this.room = room;
@@ -23,9 +35,11 @@ public class Function {
         this.seat = 100;
     }
 
+    //Constructor por defecto vacio
     public Function() {
     }
 
+    //Getters y Setters
     public int getId() {
         return id;
     }
